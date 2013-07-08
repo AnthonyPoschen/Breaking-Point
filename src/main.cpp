@@ -1,8 +1,13 @@
+#include <Windows.h>
+#include "Core/Application.h"
 
-#include <iostream>
-
-int main()
+int WINAPI WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int iShowCmd)
 {
-	std::cout << "hello world";
+	AppBase* MyApp = new Application;
+	if(MyApp->Create(lpCmdLine))
+	{
+		MyApp->Execute();
+	}
+	delete MyApp;
 	return 0;
 }
