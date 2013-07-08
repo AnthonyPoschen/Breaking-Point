@@ -4,7 +4,7 @@
 /// < File >	< ResourceManager >
 /// < Brief >	< resource manager setup >
 //////////////////////////////////////////////////////////////////////////
-
+/*
 //////////////////////////////////////////////////////////////////////////
 ///	< Includes >
 #include "ResourceManager.h"
@@ -36,7 +36,7 @@ ResourceManager::ResourceManager()
 	:m_kFilePath(".\\Data\\")
 {
 	// do this for every type of handler
-	m_kResourceHandlers.push_back(ResourceType("tmp",vector<string>())); 
+	//m_kResourceHandlers.push_back(ResourceType("tmp",vector<string>())); 
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -45,3 +45,4 @@ ResourceManager::~ResourceManager()
 
 }
 
+*/

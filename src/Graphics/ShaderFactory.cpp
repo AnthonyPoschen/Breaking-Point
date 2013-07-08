@@ -161,6 +161,7 @@ void ShaderFactory::ReleaseShaderScan()
 
 		int iPos = kProgramName.find(".",0);
 		kProgramName.erase(iPos,kProgramName.size());
+		/// <FIX THIS>
 		boost::algorithm::to_upper(kProgramName);
 
 		m_kBSF[kProgramName] = sFilePath;
@@ -289,6 +290,7 @@ void ShaderFactory::BuildBNFS()
 
 		// have some helper varriables setup
 		boost::container::string oProgramName = (*oItr).first;
+		/// <FIX THIS>
 		boost::algorithm::to_lower(oProgramName); // convert the programname to lowercase for file name
 		boost::filesystem::path oFile = (*oItr).second;
 		boost::filesystem::path oFilePath = oFile.parent_path();
@@ -360,6 +362,7 @@ void ShaderFactory::BuildBNFS()
 
 		std::ofstream OUTSTREAM; // save binary of the shader program in a order acceptable for recovery
 		OUTSTREAM.open(oNewFileName,std::fstream::binary | std::fstream::out);
+		/// <FIX THIS>
 		boost::algorithm::to_upper(oProgramName);
 		UInt8 ui8SizeOfProgramName = (UInt8)oProgramName.length();
 		OUTSTREAM << ui8SizeOfProgramName;

@@ -4,7 +4,7 @@
 /// < File >	< ResourceType >
 /// < Brief >	< Reosurce Type implementation. this handles loading all resources of a certain type. >
 //////////////////////////////////////////////////////////////////////////
-
+/*
 //////////////////////////////////////////////////////////////////////////
 ///	< Includes >
 #include "ResourceType.h"
@@ -47,20 +47,20 @@ void ResourceType::BuildFile()
 	path kBuildDir;
 	if(ResourceManager::Get() != nullptr)
 	{
-		kBuildDir = ResourceManager::Get()->GetBuildDir();
+		//kBuildDir = ResourceManager::Get()->GetBuildDir();
 	}
 	else
 	{
 		Utilities::Debug_ConsoleWrite("Resource Load Attempt before ResourceManager Created");
 		return;
 	}
-	vector<path> vFilesManaged = ResourceManager::Get()->GetAllFilesByType(m_vFileTypes);
+	//vector<path> vFilesManaged = ResourceManager::Get()->GetAllFilesByType(m_vFileTypes);
 	map<path,char*> vFileData;
-	for(unsigned int i = 0; i < vFilesManaged.size(); ++i)
+	//for(unsigned int i = 0; i < vFilesManaged.size(); ++i)
 	{
 
 		// make char* to file data.
-		vFileData[vFilesManaged.at(i)];
+	//	vFileData[vFilesManaged.at(i)];
 	}
 
 }
@@ -70,3 +70,4 @@ void ResourceType::LoadFile(string a_sName)
 
 }
 
+*/
