@@ -15,7 +15,7 @@
 #include <fstream>
 #include "../include/wglew.h"
 #include <gl/GLU.h>
-
+#include <boost/filesystem.hpp>
 
 //////////////////////////////////////////////////////////////////////////
 /// < Forward Declares >
@@ -77,12 +77,16 @@ void ShaderFactory::Initilise(const char* a_pcRootShaderDir /*= ".\\"*/)
 //////////////////////////////////////////////////////////////////////////
 void ShaderFactory::ScanDirForShaders()
 {
-	if(m_bDebug)
+	if(boost::filesystem::exists(boost::filesystem::path(m_kRootDir.c_str())))
 	{
-		DebugShaderScan();
-		BuildBNFS();
+		if(m_bDebug)
+		{
+			DebugShaderScan();
+			BuildBNFS();
+		}
+		ReleaseShaderScan();
 	}
-	ReleaseShaderScan();
+
 
 }
 
@@ -95,6 +99,7 @@ void ShaderFactory::DebugShaderScan()
 	path dir_path(m_kRootDir.c_str());
 	path FileType("*.nsf");
 	std::vector<std::string> vFiles;
+
 	vFiles = find_files_by_type(dir_path,FileType);
 	
 	auto Itr = vFiles.begin();
