@@ -1,0 +1,39 @@
+//////////////////////////////////////////////////////////////////////////
+///	< Author >		< Anthony Poschen >
+/// < Date >		< 23 - 3 - 2013 >
+/// < Class Brief >	< This is the Root Mesh Class. it inherits from AVObject and handles the data of a mesh  >
+//////////////////////////////////////////////////////////////////////////
+///	< File Define >
+#ifndef _BZMESH_H_
+#define _BZMESH_H_
+//////////////////////////////////////////////////////////////////////////
+///	< Includes >
+#include "../core/AVObject.h"
+//////////////////////////////////////////////////////////////////////////
+/// < Forward Declares >
+class AVObject;
+
+//////////////////////////////////////////////////////////////////////////
+class bzMesh : public AVObject
+{
+public:
+	friend class Renderer;
+	virtual const Rtti& GetType() const { return TYPE; }
+	bzMesh();
+	~bzMesh();
+
+protected:
+	static const Rtti TYPE;
+
+	unsigned int m_uiVAOID; // Vertex Array Object.
+	unsigned int m_uiVertexBuffer;
+	unsigned int m_uiVertColorBuffer; 
+	float* vertexdatatest;
+	float* vertcolors;
+private:
+	// used internally by Renderer Class to render its contents
+	virtual void Render();
+};
+//////////////////////////////////////////////////////////////////////////
+#endif // _BZMESH_H_
+//////////////////////////////////////////////////////////////////////////
