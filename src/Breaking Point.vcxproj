@@ -82,7 +82,68 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Core\AppBase.cpp" />
+    <ClCompile Include="Core\Application.cpp" />
+    <ClCompile Include="Core\AVObject.cpp" />
+    <ClCompile Include="Core\bzPython.cpp" />
+    <ClCompile Include="Core\bzTime.cpp" />
+    <ClCompile Include="Core\Camera.cpp" />
+    <ClCompile Include="Core\Input.cpp" />
+    <ClCompile Include="Core\Node.cpp" />
+    <ClCompile Include="Core\Object.cpp" />
+    <ClCompile Include="Core\Property.cpp" />
+    <ClCompile Include="Core\Rtti.cpp" />
+    <ClCompile Include="Core\Transform.cpp" />
+    <ClCompile Include="Core\Utilities.cpp" />
+    <ClCompile Include="Graphics\bzMesh.cpp" />
+    <ClCompile Include="Graphics\Renderer.cpp" />
+    <ClCompile Include="Graphics\ShaderFactory.cpp" />
+    <ClCompile Include="Graphics\ShaderProgram.cpp" />
+    <ClCompile Include="Graphics\Window.cpp" />
+    <ClCompile Include="Input\Keyboard.cpp" />
+    <ClCompile Include="Input\Mouse.cpp" />
+    <ClCompile Include="Input\ResourceManager.cpp" />
+    <ClCompile Include="Input\ResourceType.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Math\CoreMath.cpp" />
+    <ClCompile Include="Math\float2.cpp" />
+    <ClCompile Include="Math\float3.cpp" />
+    <ClCompile Include="Math\float4.cpp" />
+    <ClCompile Include="Math\matrix3.cpp" />
+    <ClCompile Include="Math\matrix4.cpp" />
+    <ClCompile Include="Math\Quaternion.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Core\AppBase.h" />
+    <ClInclude Include="Core\Application.h" />
+    <ClInclude Include="Core\AVObject.h" />
+    <ClInclude Include="Core\bzPython.h" />
+    <ClInclude Include="Core\bzTime.h" />
+    <ClInclude Include="Core\Camera.h" />
+    <ClInclude Include="Core\Input.h" />
+    <ClInclude Include="Core\Node.h" />
+    <ClInclude Include="Core\Object.h" />
+    <ClInclude Include="Core\Property.h" />
+    <ClInclude Include="Core\Rtti.h" />
+    <ClInclude Include="Core\Transform.h" />
+    <ClInclude Include="Core\Utilities.h" />
+    <ClInclude Include="Graphics\bzMesh.h" />
+    <ClInclude Include="Graphics\Renderer.h" />
+    <ClInclude Include="Graphics\ShaderFactory.h" />
+    <ClInclude Include="Graphics\ShaderProgram.h" />
+    <ClInclude Include="Graphics\Window.h" />
+    <ClInclude Include="Input\Keyboard.h" />
+    <ClInclude Include="Input\Mouse.h" />
+    <ClInclude Include="Input\ResourceManager.h" />
+    <ClInclude Include="Input\ResourceType.h" />
+    <ClInclude Include="Math\CoreMath.h" />
+    <ClInclude Include="Math\float2.h" />
+    <ClInclude Include="Math\float3.h" />
+    <ClInclude Include="Math\float4.h" />
+    <ClInclude Include="Math\matrix3.h" />
+    <ClInclude Include="Math\matrix4.h" />
+    <ClInclude Include="Math\Quaternion.h" />
+    <ClInclude Include="Math\UniversalTypes.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
