@@ -16,15 +16,14 @@
 //////////////////////////////////////////////////////////////////////////
 //  Forward Declares 
 
-
 //////////////////////////////////////////////////////////////////////////
 class AppBase
 {
 	/*! FLAGS enum, Application State*/
 	enum FLAGS
 	{
-		FLAGS_CREATED	= (1<<0), /*< Application Currently Running  */
-		FLAGS_DESTROYED	= (1<<1), /*< Application Not Running */
+		FLAGS_CREATED	= (1<<0), //!<	Application Currently Running 
+		FLAGS_DESTROYED	= (1<<1), //!<	Application Not Running 
 	};
 
 public:
@@ -82,10 +81,10 @@ private:
 
 
 	// Application flags (created/destroyed) add your own if desired
-	unsigned int			m_uiFlags;//<!	Stores current State of AppBase
+	unsigned int			m_uiFlags;//!<	Stores current State of AppBase
 
 	// Singleton handle to the Application instance
-	static AppBase*			sm_pSingleton;//<!	Stores singleton Pointer.
+	static AppBase*			sm_pSingleton;//!<	Stores singleton Pointer.
 };
 //////////////////////////////////////////////////////////////////////////
 #endif // _APPBASE_H_

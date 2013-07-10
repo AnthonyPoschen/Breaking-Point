@@ -1,0 +1,46 @@
+I:/GitRepos/Breaking-Point/src/Core/Object.h:23: Warning: Unsupported xml/html tag <Type> found
+I:/GitRepos/Breaking-Point/src/Core/Object.h:29: Warning: Unsupported xml/html tag <Casting> found
+I:/GitRepos/Breaking-Point/src/Core/Input.cpp:19: Warning: Unsupported xml/html tag <Keyboard> found
+I:/GitRepos/Breaking-Point/src/Core/Input.cpp:21: Warning: Unsupported xml/html tag <Mouse> found
+I:/GitRepos/Breaking-Point/src/Core/Input.cpp:23: Warning: Unsupported xml/html tag <Keyboard> found
+I:/GitRepos/Breaking-Point/src/Math/CoreMath.cpp:109: Warning: Unsupported xml/html tag <bzMath> found
+I:/GitRepos/Breaking-Point/src/Core/AppBase.h:120: Warning: argument 'const' of command @param is not found in the argument list of AppBase::DisplayErrorMessageBox(const char *a_sMessage)
+I:/GitRepos/Breaking-Point/src/Core/AppBase.h:120: Warning: The following parameters of AppBase::DisplayErrorMessageBox(const char *a_sMessage) are not documented:
+  parameter 'a_sMessage'
+I:/GitRepos/Breaking-Point/src/Core/AppBase.h:52: Warning: argument 'const' of command @param is not found in the argument list of AppBase::OnCreate(const char *a_sCmdLine)=0
+I:/GitRepos/Breaking-Point/src/Core/AppBase.h:52: Warning: The following parameters of AppBase::OnCreate(const char *a_sCmdLine)=0 are not documented:
+  parameter 'a_sCmdLine'
+I:/GitRepos/Breaking-Point/src/Core/Object.h:23: Warning: Unsupported xml/html tag <Type> found
+I:/GitRepos/Breaking-Point/src/Core/Object.h:29: Warning: Unsupported xml/html tag <Casting> found
+I:/GitRepos/Breaking-Point/src/Core/AVObject.h:83: Warning: argument 'a_kVec' of command @param is not found in the argument list of AVObject::GetTranslate()
+I:/GitRepos/Breaking-Point/src/Core/AVObject.h:91: Warning: argument 'a_kVec' of command @param is not found in the argument list of AVObject::GetWorldTranslate()
+I:/GitRepos/Breaking-Point/src/Core/Object.h:23: Warning: Unsupported xml/html tag <Type> found
+I:/GitRepos/Breaking-Point/src/Core/Object.h:29: Warning: Unsupported xml/html tag <Casting> found
+I:/GitRepos/Breaking-Point/src/Core/Object.h:23: Warning: Unsupported xml/html tag <Type> found
+I:/GitRepos/Breaking-Point/src/Core/Object.h:29: Warning: Unsupported xml/html tag <Casting> found
+I:/GitRepos/Breaking-Point/src/Core/Object.h:23: Warning: Unsupported xml/html tag <Type> found
+I:/GitRepos/Breaking-Point/src/Core/Object.h:29: Warning: Unsupported xml/html tag <Casting> found
+I:/GitRepos/Breaking-Point/src/Core/Object.h:23: Warning: Unsupported xml/html tag <Type> found
+I:/GitRepos/Breaking-Point/src/Core/Object.h:29: Warning: Unsupported xml/html tag <Casting> found
+I:/GitRepos/Breaking-Point/src/Core/Object.h:23: Warning: Unsupported xml/html tag <Type> found
+I:/GitRepos/Breaking-Point/src/Core/Object.h:29: Warning: Unsupported xml/html tag <Casting> found
+I:/GitRepos/Breaking-Point/src/Graphics/ShaderFactory.cpp:298: Warning: Unsupported xml/html tag <FIX> found
+I:/GitRepos/Breaking-Point/src/Graphics/ShaderFactory.cpp:300: Warning: Unsupported xml/html tag <FIX> found
+I:/GitRepos/Breaking-Point/src/Graphics/ShaderFactory.cpp:169: Warning: Unsupported xml/html tag <FIX> found
+I:/GitRepos/Breaking-Point/src/Core/AppBase.h:120: Warning: argument 'const' of command @param is not found in the argument list of AppBase::DisplayErrorMessageBox(const char *a_sMessage)
+I:/GitRepos/Breaking-Point/src/Core/AppBase.h:120: Warning: The following parameters of AppBase::DisplayErrorMessageBox(const char *a_sMessage) are not documented:
+  parameter 'a_sMessage'
+I:/GitRepos/Breaking-Point/src/Core/AppBase.h:52: Warning: argument 'const' of command @param is not found in the argument list of AppBase::OnCreate(const char *a_sCmdLine)=0
+I:/GitRepos/Breaking-Point/src/Core/AppBase.h:52: Warning: The following parameters of AppBase::OnCreate(const char *a_sCmdLine)=0 are not documented:
+  parameter 'a_sCmdLine'
+I:/GitRepos/Breaking-Point/src/Core/AVObject.h:83: Warning: argument 'a_kVec' of command @param is not found in the argument list of AVObject::GetTranslate()
+I:/GitRepos/Breaking-Point/src/Core/AVObject.h:91: Warning: argument 'a_kVec' of command @param is not found in the argument list of AVObject::GetWorldTranslate()
+I:/GitRepos/Breaking-Point/src/Core/Object.h:23: Warning: Unsupported xml/html tag <Type> found
+I:/GitRepos/Breaking-Point/src/Core/Object.h:29: Warning: Unsupported xml/html tag <Casting> found
+<BuildBNFS>:298: Warning: Unsupported xml/html tag <FIX> found
+<BuildBNFS>:300: Warning: Unsupported xml/html tag <FIX> found
+<ReleaseShaderScan>:169: Warning: Unsupported xml/html tag <FIX> found
+I:/GitRepos/Breaking-Point/src/Core/Input.cpp:19: Warning: Unsupported xml/html tag <Keyboard> found
+I:/GitRepos/Breaking-Point/src/Core/Input.cpp:21: Warning: Unsupported xml/html tag <Mouse> found
+I:/GitRepos/Breaking-Point/src/Core/Input.cpp:23: Warning: Unsupported xml/html tag <Keyboard> found
+I:/GitRepos/Breaking-Point/src/Math/CoreMath.cpp:109: Warning: Unsupported xml/html tag <bzMath> found
