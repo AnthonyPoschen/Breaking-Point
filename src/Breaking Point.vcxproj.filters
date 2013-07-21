@@ -28,9 +28,6 @@
     <ClCompile Include="Core\AVObject.cpp">
       <Filter>Core</Filter>
     </ClCompile>
-    <ClCompile Include="Core\bzPython.cpp">
-      <Filter>Core</Filter>
-    </ClCompile>
     <ClCompile Include="Core\bzTime.cpp">
       <Filter>Core</Filter>
     </ClCompile>
@@ -106,6 +103,9 @@
     <ClCompile Include="Math\Quaternion.cpp">
       <Filter>Math</Filter>
     </ClCompile>
+    <ClCompile Include="Core\bpPython.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\AppBase.h">
@@ -115,9 +115,6 @@
       <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="Core\AVObject.h">
-      <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\bzPython.h">
       <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="Core\bzTime.h">
@@ -197,6 +194,9 @@
     </ClInclude>
     <ClInclude Include="Math\UniversalTypes.h">
       <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\bpPython.h">
+      <Filter>Core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,41 +1,41 @@
 //////////////////////////////////////////////////////////////////////////
-///	< Author >	< Anthony Poschen >
-///	< Date >	< 7/4/2013 >
-/// < File >	< bzPython >
-/// < Brief >	< bzPython implementation. this handles wraping python. and making it simpiler to use boost::python to setup and shut down python. >
+//	< Author >	< Anthony Poschen >
+//	< Date >	< 7/4/2013 >
+// < File >	< bpPython >
+// < Brief >	< bpPython implementation. this handles wraping python. and making it simpiler to use boost::python to setup and shut down python. >
 //////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////
-///	< Includes >
-#include "bzPython.h"
+//	< Includes >
+#include "bpPython.h"
 #include <boost/filesystem.hpp>
 //////////////////////////////////////////////////////////////////////////
-/// < Forward Declares >
-bzPython* bzPython::m_pInst = nullptr;
-boost::python::api::object bzPython::m_kGlobalNamespace = boost::python::api::object();
-boost::python::api::object bzPython::m_kLocalNamespace = boost::python::api::object();
+// < Forward Declares >
+bpPython* bpPython::m_pInst = nullptr;
+boost::python::api::object bpPython::m_kGlobalNamespace = boost::python::api::object();
+boost::python::api::object bpPython::m_kLocalNamespace = boost::python::api::object();
 
 //////////////////////////////////////////////////////////////////////////
-bzPython* bzPython::Create()
+bpPython* bpPython::Create()
 {
-	return (m_pInst != nullptr) ? m_pInst : m_pInst = new bzPython();
+	return (m_pInst != nullptr) ? m_pInst : m_pInst = new bpPython();
 }
 
 //////////////////////////////////////////////////////////////////////////
-void bzPython::Release()
+void bpPython::Release()
 {
 	if(m_pInst != nullptr)
 		delete m_pInst;
 }
 
 //////////////////////////////////////////////////////////////////////////
-bzPython* bzPython::Get()
+bpPython* bpPython::Get()
 {
 	return m_pInst;
 }
  
 //////////////////////////////////////////////////////////////////////////
-bzPython::bzPython()
+bpPython::bpPython()
 {
 	PyMethodDef tmp[] = { { 0, 0, 0, 0 } }; // this stops the access violation wtf right.
 	Py_SetProgramName((wchar_t*)"Python32");
@@ -62,7 +62,7 @@ bzPython::bzPython()
 	}
 	catch (boost::python::error_already_set const&)
 	{
-		std::string perror_str = bzPython::Get()->parse_python_exception();
+		std::string perror_str = bpPython::Get()->parse_python_exception();
 		std::cout << "Error in Python:\nType: " << perror_str << std::endl;
 	}
 
@@ -70,20 +70,20 @@ bzPython::bzPython()
 }
 
 //////////////////////////////////////////////////////////////////////////
-bzPython::~bzPython()
+bpPython::~bpPython()
 {
 	Py_Finalize();
 }
 
 //////////////////////////////////////////////////////////////////////////
-void bzPython::AddPythonModule(const char* a_cpName, PyObject*(*a_fpInitFunc)())
+void bpPython::AddPythonModule(const char* a_cpName, PyObject*(*a_fpInitFunc)())
 {
 	PyImport_AppendInittab(a_cpName,a_fpInitFunc);
 }
 
 
 //////////////////////////////////////////////////////////////////////////
-void bzPython::exec(boost::python::str a_sCommand, const boost::python::api::object& a_kLocalNameSpace /* = m_kLocalNamespace */, const boost::python::api::object& a_kGlobalNameSpace /* = m_kGlobalNamespace */)
+void bpPython::exec(boost::python::str a_sCommand, const boost::python::api::object& a_kLocalNameSpace /* = m_kLocalNamespace */, const boost::python::api::object& a_kGlobalNameSpace /* = m_kGlobalNamespace */)
 {
 	try
 	{ 
@@ -92,14 +92,14 @@ void bzPython::exec(boost::python::str a_sCommand, const boost::python::api::obj
 	}
 	catch (boost::python::error_already_set const&)
 	{
-		std::string perror_str = bzPython::Get()->parse_python_exception();
+		std::string perror_str = bpPython::Get()->parse_python_exception();
 		std::cout << "Error in Python:\nType: " << perror_str << std::endl;
 	}
 
 }
 
 //////////////////////////////////////////////////////////////////////////
-std::string bzPython::parse_python_exception() 
+std::string bpPython::parse_python_exception() 
 {
 	PyObject* type_ptr = nullptr;
 	PyObject* value_ptr = nullptr;

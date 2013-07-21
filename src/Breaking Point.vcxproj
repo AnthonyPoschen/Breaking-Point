@@ -94,7 +94,7 @@ doxygen.exe bpdoxyfile</Command>
     <ClCompile Include="Core\AppBase.cpp" />
     <ClCompile Include="Core\Application.cpp" />
     <ClCompile Include="Core\AVObject.cpp" />
-    <ClCompile Include="Core\bzPython.cpp" />
+    <ClCompile Include="Core\bpPython.cpp" />
     <ClCompile Include="Core\bzTime.cpp" />
     <ClCompile Include="Core\Camera.cpp" />
     <ClCompile Include="Core\Input.cpp" />
@@ -126,7 +126,7 @@ doxygen.exe bpdoxyfile</Command>
     <ClInclude Include="Core\AppBase.h" />
     <ClInclude Include="Core\Application.h" />
     <ClInclude Include="Core\AVObject.h" />
-    <ClInclude Include="Core\bzPython.h" />
+    <ClInclude Include="Core\bpPython.h" />
     <ClInclude Include="Core\bzTime.h" />
     <ClInclude Include="Core\Camera.h" />
     <ClInclude Include="Core\Input.h" />

@@ -1,16 +1,13 @@
 //////////////////////////////////////////////////////////////////////////
-//	< Author >	< Anthony Poschen >
-//	< Date >	< 3/2/2013 >
-// < File >	< Application >
+// < Author >	< Anthony Poschen >
+// < Date >		< 3/2/2013 >
+// < File >		< Application >
 // < Brief >	< Main Application Loop Management >
 //////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////
 //	< Includes >
 
-//#include <Python.h>
-//#include <boost/python.hpp>
-//#include <boost/python/exec.hpp>
 #include "Application.h"
 
 #include "../include/glew.h"
@@ -21,7 +18,7 @@
 #include "Camera.h"
 #include "../Graphics/ShaderFactory.h"
 #include "../Graphics/ShaderProgram.h"
-#include "bzPython.h"
+#include "bpPython.h"
 #include <iostream>
 #include <string>
 #include "Utilities.h"
@@ -35,7 +32,7 @@ bool Application::OnCreate(const char* a_sCmdLine)
 	
 	Window::Create("my Window",1024 , 768 , true , true);
 	Utilities::ConsoleShow();
-	bzPython::Create();
+	bpPython::Create();
 	bzTime::Create();
 	Mouse::Create();
 	Keyboard::Create();
@@ -43,7 +40,7 @@ bool Application::OnCreate(const char* a_sCmdLine)
 	ShaderFactory::Create();
 	ShaderFactory::Get()->Initilise(".\\Data\\Shaders\\");
 	m_kShaderProgram.LoadShaderProgram("oProgram");
-	bzPython::exec("import MyModule");
+	bpPython::exec("import MyModule");
 	m_kRootNode = NodePtr( new Node());
 
 	Camera::Frustrum oFrustrum;
@@ -91,7 +88,7 @@ bool Application::OnUpdate()
 
 	m_kpCamera->LookAt(float3(0,0,0),float3(0,1,0));
 	m_kpCamera->SetTranslate(kPos);
-	bzPython::exec("MyModule.Speak();");
+	bpPython::exec("MyModule.Speak();");
 
 	m_kRootNode->Update(bzTime::Get()->DeltaTime());
 	return Window::Get()->Tick();
@@ -118,7 +115,7 @@ void Application::OnRender()
 //////////////////////////////////////////////////////////////////////////
 void Application::OnDestroy()
 {
-	bzPython::Get()->Release();
+	bpPython::Get()->Release();
 	Renderer::Get()->Release();
 	Mouse::Get()->Release();
 	Keyboard::Get()->Release();

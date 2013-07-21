@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include <io.h>
 #include <fcntl.h>
-#include "bzPython.h"
+#include "bpPython.h"
 
 //////////////////////////////////////////////////////////////////////////
 /// < Forward Declares >

@@ -1,29 +1,33 @@
 //////////////////////////////////////////////////////////////////////////
-///	< Author >	< Anthony Poschen >
-///	< Date >	< 5/5/2013 >
-/// < File >	< Input >
-/// < Brief >	< input setup >
+//	< Author >	< Anthony Poschen >
+//	< Date >	< 5/5/2013 >
+//	< File >	< Input >
+//	< Brief >	< input setup >
 //////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////
-///	< Includes >
-#include "bzPython.h"
+// Includes 
+#include "bpPython.h"
 #include "../input/Mouse.h"
 #include "../Input/Keyboard.h"
 //////////////////////////////////////////////////////////////////////////
-/// < Forward Declares >
-
+//  Forward Declares 
+/*! \brief handles Keyboard and Mouse Input
+ *	\defgroup bzInput 
+ *	\ingroup PyModules
+ */
 PYTHON_MODULE(bzInput)
 {
 	using namespace boost::python;
-	/// <Keyboard Funcitons >
-	
+	// <Keyboard Funcitons >
+	//@{
+	/*!	KeyStates Take Char input */
 	def("KeyUp",&Keyboard::IsKeyUp);
 	def("KeyDown",&Keyboard::IsKeyDown);
 	def("KeyPress",&Keyboard::IsKeyPressed);
 	def("KeyRelease",&Keyboard::IsKeyReleased);
-
-	/// <Mouse Funcitons>
+	//@}
+	// <Mouse Funcitons>
 
 
 	// to do list.. implement mouse.
@@ -32,7 +36,7 @@ PYTHON_MODULE(bzInput)
 	def("CursorShow",Mouse::Show);
 
 
-	/// <Keyboard Extentions>
+	// <Keyboard Extentions>
 	enum_<KEY>("KEY")
 		.value("KEY_0",KEY_0)
 		.value("KEY_1",KEY_1)
