@@ -12,21 +12,21 @@
 #include "../Input/Keyboard.h"
 //////////////////////////////////////////////////////////////////////////
 //  Forward Declares 
-/*! \brief handles Keyboard and Mouse Input
- *	\defgroup bzInput 
+
+/*! \defgroup bzInput 
  *	\ingroup PyModules
  */
 PYTHON_MODULE(bzInput)
 {
+
+
 	using namespace boost::python;
 	// <Keyboard Funcitons >
-	//@{
-	/*!	KeyStates Take Char input */
+
 	def("KeyUp",&Keyboard::IsKeyUp);
 	def("KeyDown",&Keyboard::IsKeyDown);
 	def("KeyPress",&Keyboard::IsKeyPressed);
 	def("KeyRelease",&Keyboard::IsKeyReleased);
-	//@}
 	// <Mouse Funcitons>
 
 
@@ -187,3 +187,9 @@ PYTHON_MODULE(bzInput)
 }
 
 //////////////////////////////////////////////////////////////////////////
+	/*! \fn bzInput.KeyUp(char a_cKey)
+	 *	\brief check if key is up 
+	 *  \param char - keyboard charactor to check
+	 *  \return bool - result of Keystate
+	 *	\ingroup bzInput
+	 */
