@@ -1,21 +1,27 @@
 //////////////////////////////////////////////////////////////////////////
-///	< Author >		< Anthony Poschen >
-/// < Date >		< 15 - 3 - 2013 >
-/// < Class Brief >	< ShaderProgram Class for compiling shaders and managing them  >
+/*! \class		ShaderProgram
+ *  \brief		This holds all shader information for the render to use to draw geometry.
+ *	\details	
+ *  \details	
+ *  \author		Anthony Poschen
+ *  \version	1.0
+ *  \date		15/03/2013
+ *  \copyright N/A
+ */
 //////////////////////////////////////////////////////////////////////////
-///	< File Define >
 #ifndef _SHADERPROGRAM_H_
-#define _SHADERPROGRAM_H_
+# define _SHADERPROGRAM_H_
 //////////////////////////////////////////////////////////////////////////
-///	< Includes >
+//	Includes 
 #include "../Include/glew.h"
 #include "../include/wglew.h"
 #include <gl/GL.h>
 #include "../core/Property.h"
 #include <boost/container/string.hpp>
 
+
 //////////////////////////////////////////////////////////////////////////
-/// < Forward Declares >
+//  Forward Declares 
 
 
 //////////////////////////////////////////////////////////////////////////
@@ -26,6 +32,11 @@ public:
 	friend class Renderer;
 	ShaderProgram();
 	~ShaderProgram();
+
+	/*! \brief This function loads the shader specified from the shaderfactory.
+	 *  \param a_pcProgramName [in] - The name of the shaderprogram to use. shader program names must be unique.
+	 *  \return bool - determine if the shader could be loaded or not. 
+	 */
 	bool LoadShaderProgram(const char * a_pcProgramName);
 protected:
 	

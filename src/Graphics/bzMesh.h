@@ -6,6 +6,7 @@
  *  \author		Anthony Poschen
  *  \version	1.0
  *  \date		23/03/2013
+ *	\todo Fix this class to be more self relient and have more helpfull features to make Renderer class easier to render this object. 
  *  \copyright N/A
  */
 //////////////////////////////////////////////////////////////////////////

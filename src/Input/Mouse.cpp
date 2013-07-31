@@ -1,22 +1,22 @@
 //////////////////////////////////////////////////////////////////////////
-///	< Author >	< Anthony Poschen >
-///	< Date >	< 20/1/2013 >
-/// < File >	< Mouse >
-/// < Brief >	< Mouse implementation  >
+//	< Author >	< Anthony Poschen >
+//	< Date >	< 20/1/2013 >
+// < File >	< Mouse >
+// < Brief >	< Mouse implementation  >
 //////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////
-///	< Includes >
+//	< Includes >
 #include "Mouse.h"
 #include "../Graphics/Window.h"
 #include "../Core/bzTime.h"
 //////////////////////////////////////////////////////////////////////////
-/// < Forward Declares >
+// < Forward Declares >
 Mouse* Mouse::m_pSingleton = nullptr;
 
 //////////////////////////////////////////////////////////////////////////
 Mouse::Mouse()
-	:m_iXPrev(-1), m_iYPrev(-1), m_uiScrollVal(0) , m_bScrollDown(0) , m_bScrollUp(0) , m_bLockToScreen(false) , m_bLockToWindow(false)
+	:m_iXPrev(-1), m_iYPrev(-1), m_uiScrollVal(0) , m_bScrollDown(0) , m_bScrollUp(0) , m_bLockToScreenSpace(false) , m_bLockToWindow(false)
 {
 
 	m_pVKMap[0] = VK_LBUTTON;
@@ -65,13 +65,13 @@ void Mouse::Release()
 void Mouse::Update()
 {
 	
-	if((m_bLockToWindow || m_bLockToScreen) & Window::Get()->IsActive())
+	if((m_bLockToWindow || m_bLockToScreenSpace) & Window::Get()->IsActive())
 	{
 		RECT kWndRect, kScrnRect, kScrntoWndRect;
 		//LPRECT
 		GetWindowRect(Window::Get()->GetHandle(),&kWndRect);
 		GetClientRect(Window::Get()->GetHandle(),&kScrnRect);
-		if(m_bLockToScreen)
+		if(m_bLockToScreenSpace)
 		{
 			// clips the cursor to within the borders of the window leaving it inside the game
 			unsigned int uiThinBorder = (kWndRect.right - kWndRect.left - kScrnRect.right) / 2;  
@@ -168,15 +168,15 @@ void Mouse::LockToWindow(bool a_bLock)
 }
 
 //////////////////////////////////////////////////////////////////////////
-void Mouse::LockToScreen(bool a_bLock)
+void Mouse::LockToScreenSpace(bool a_bLock)
 {
-	m_bLockToScreen = a_bLock;
+	m_bLockToScreenSpace = a_bLock;
 }
 
 //////////////////////////////////////////////////////////////////////////
-bool Mouse::IsLockedToScreen()
+bool Mouse::IsLockedToScreenSpace()
 {
-	return m_bLockToScreen;
+	return m_bLockToScreenSpace;
 }
 
 //////////////////////////////////////////////////////////////////////////

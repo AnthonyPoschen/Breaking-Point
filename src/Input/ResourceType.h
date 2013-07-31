@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////
-///	< Author >		< Anthony Poschen >
-/// < Date >		< 7 - 6 - 2013 >
-/// < Class Brief >	< ResourceType  >
+//	< Author >		< Anthony Poschen >
+// < Date >		< 7 - 6 - 2013 >
+// < Class Brief >	< ResourceType  >
 //////////////////////////////////////////////////////////////////////////
 ///	< File Define >
 #ifndef _RESOURCETYPE_H_

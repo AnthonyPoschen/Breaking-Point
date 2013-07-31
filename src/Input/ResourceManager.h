@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////
-///	< Author >		< Anthony Poschen >
-/// < Date >		< 26 - 5 - 2013 >
-/// < Class Brief >	< This class handles loading Resources used by the program from .dat to expected output  >
+//	< Author >		< Anthony Poschen >
+// < Date >		< 26 - 5 - 2013 >
+// < Class Brief >	< This class handles loading Resources used by the program from .dat to expected output  >
 //////////////////////////////////////////////////////////////////////////
 ///	< File Define >
 /*

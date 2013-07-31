@@ -1,8 +1,8 @@
 //////////////////////////////////////////////////////////////////////////
-///	< Author >	< Anthony Poschen >
-///	< Date >	< 7/6/2013 >
-/// < File >	< ResourceType >
-/// < Brief >	< Reosurce Type implementation. this handles loading all resources of a certain type. >
+//	< Author >	< Anthony Poschen >
+//	< Date >	< 7/6/2013 >
+// < File >	< ResourceType >
+// < Brief >	< Reosurce Type implementation. this handles loading all resources of a certain type. >
 //////////////////////////////////////////////////////////////////////////
 /*
 //////////////////////////////////////////////////////////////////////////

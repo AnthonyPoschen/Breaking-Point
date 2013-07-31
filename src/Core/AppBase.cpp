@@ -31,7 +31,7 @@ AppBase::~AppBase()
 void AppBase::Execute()
 {		
 	//bool bMouseScreenLock , bMouseWindowLock;
-	//bMouseScreenLock = Mouse::Get()->IsLockedToScreen();
+	//bMouseScreenLock = Mouse::Get()->IsLockedToScreenSpace();
 	//bMouseWindowLock = Mouse::Get()->IsLockedToWindow();	
 	
 	while ((m_uiFlags & FLAGS_DESTROYED) == false)
@@ -39,7 +39,7 @@ void AppBase::Execute()
 
 		if(Window::Get()->IsActive() == false)
 		{
-			//if(bMouseScreenLock){  Mouse::Get()->LockToScreen(false);}
+			//if(bMouseScreenLock){  Mouse::Get()->LockToScreenSpace(false);}
 			//if(bMouseWindowLock){  Mouse::Get()->LockToWindow(false);}
 			OnIdle();
 			continue;

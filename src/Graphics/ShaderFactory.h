@@ -1,13 +1,18 @@
 //////////////////////////////////////////////////////////////////////////
-///	< Author >		< Anthony Poschen >
-/// < Date >		< 2 - 3 - 2013 >
-/// < Class Brief >	< This class Handles finding shaders to be ready to be loaded  >
+/*! \class		ShaderFactory
+ *  \brief		This class Handles all ShaderObjects. 
+ *	\details	handles loading and saving shader programs to disk.
+ *  \details	handles in fetching shaderprograms.
+ *  \author		Anthony Poschen
+ *  \version	1.0
+ *  \date		02/03/2013
+ *  \copyright N/A
+ */
 //////////////////////////////////////////////////////////////////////////
-///	< File Define >
 #ifndef _SHADERFACTORY_H_
-#define _SHADERFACTORY_H_
+# define _SHADERFACTORY_H_
 //////////////////////////////////////////////////////////////////////////
-///	< Includes >
+//	Includes 
 #include <algorithm>
 #include <iostream>
 
@@ -22,7 +27,7 @@
 #include "ShaderProgram.h"
 #include <gl/GL.h>
 //////////////////////////////////////////////////////////////////////////
-/// < Forward Declares >
+//  Forward Declares 
 
 using namespace boost::container;
 using namespace boost::filesystem;
@@ -33,10 +38,23 @@ class ShaderFactory
 public:
 	friend class ShaderProgram;
 
+	/*! \brief Creates the signleton object.
+	 *  \return returns a pointed to the instance thats created.
+	 */
 	static ShaderFactory* Create();
+
+	/*! \brief Releases the object freeing all memory it uses.
+	 */
 	virtual void Release();
+
+	/*! \brief gets an instance of the singleton object. 
+	 *  \return Shaderfactory* - rreturns the singleton object.
+	 */
 	static ShaderFactory* Get();
 
+	/*! \brief Sets up the shaderfactory with all shaderprograms it can discover
+	 *  \param a_pcRootShaderDir [in] - directory relative to the program to search for shader programs to load. 
+	 */
 	void Initilise(const char* a_pcRootShaderDir = ".\\");
 
 	

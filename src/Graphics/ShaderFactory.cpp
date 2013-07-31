@@ -1,12 +1,12 @@
 //////////////////////////////////////////////////////////////////////////
-///	< Author >	< Anthony Poschen >
-///	< Date >	< 2/3/2013 >
-/// < File >	< ShaderFactory >
-/// < Brief >	< ShaderFactory Implementation >
+//	< Author >	< Anthony Poschen >
+//	< Date >	< 2/3/2013 >
+//  < File >	< ShaderFactory >
+//  < Brief >	< ShaderFactory Implementation >
 //////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////
-///	< Includes >
+//	< Includes >
 #include "ShaderFactory.h"
 #include <boost/algorithm/string.hpp>
 
@@ -18,7 +18,7 @@
 #include <boost/filesystem.hpp>
 
 //////////////////////////////////////////////////////////////////////////
-/// < Forward Declares >
+// < Forward Declares >
 ShaderFactory* ShaderFactory::m_pInst = nullptr;
 std::vector<std::string> find_files_by_type(const path& dir_path , const path& file_Ext);
 std::string StringToUpper(std::string a_sConvert);

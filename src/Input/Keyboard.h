@@ -1,16 +1,22 @@
 //////////////////////////////////////////////////////////////////////////
-///	< Author >		< Anthony Poschen >
-/// < Date >		<10/10/11>
-/// < Class Brief >	< This Class Manages updating keystrokes done on a keyboard and allowing easy access to what was pressed  >
+/*! \class		Keyboard
+ *  \brief		This class Managed keystroke input from the end users keyboard.
+ *	\details	can determine if keys are held down or just pressed or released.
+ *  \details	
+ *  \author		Anthony Poschen
+ *  \version	1.0
+ *  \date		10/10/2011
+ *  \copyright N/A
+ */
 //////////////////////////////////////////////////////////////////////////
-///	< File Define >
 #ifndef _KEYBOARD_H_
-#define _KEYBOARD_H_
+# define _KEYBOARD_H_
 //////////////////////////////////////////////////////////////////////////
-///	< Includes >
+//	Includes 
+
 
 //////////////////////////////////////////////////////////////////////////
-/// < Forward Declares >
+//  Forward Declares 
 
 
 //////////////////////////////////////////////////////////////////////////
@@ -18,17 +24,47 @@ class Keyboard
 {
 public:
 
-
+	/*! \brief Create the Singleton object for this class
+	 *  \return Keyboard* - returns a refrence to the singleton object.
+	 */
 	static Keyboard*	Create();
-	static void			Release();
+
+	/*! \brief Get the Singleton object.
+	 *  \return Keyboard* - refrence to the singleton object.
+	 */
 	static Keyboard*	Get();
 
+	/*! \brief Release the singleton object freeing all of its memory.
+	 */
+	virtual void		Release();
+
+	/*! \brief Update the state of the keyboard getting its current state. should only be called once per update.
+	 */
 	static void		Update();
 
-	
+	/*! \brief Is a Particular Keyboard key currently NOT pressed.
+	 *  \param a_cKey - The KEY to be checked (USE ENUM KEY)
+	 *  \return bool - True if key is up. False if the key is down.
+	 */
 	static bool		IsKeyUp(unsigned char a_cKey);
+
+	/*! \brief Is a Particular keyboard key being pressed.
+	 *  \param a_cKey - the KEY to be checked (USE ENUM KEY)
+	 *  \return bool - TRUE if key is being pressed. FALSE if key is not being pressed.
+	 */
 	static bool		IsKeyDown(unsigned char a_cKey);
+
+	/*! \brief Check if a key was only just pressed now. checks if the key was up last time but now is down.
+	 *  \param a_cKey - the KEY to be checked (USE ENUM KEY)
+	 *  \return bool - TRUE if key was just pressed. False if it wasnt just pressed.
+	 */
 	static bool		IsKeyPressed(unsigned char a_cKey);
+
+	/*! \brief Check if a key was just released. checks if key was down last update but now is up.
+	 *  \param a_cKey - the KEY to be checked (USE ENUM KEY)
+	 *  \return bool - TRUE if key was just released. FALSE if it wasnt just released.
+	 *	\sa foo::bar()
+	 */
 	static bool		IsKeyReleased(unsigned char a_cKey);
 
 
@@ -43,6 +79,14 @@ protected:
 	char				m_acKeysPrevious[256];
 };
 
+/*! \enum KEY
+ *  \brief keycodes to be passed to Keyboard functions. this enum puts a human recognisable name to the hex code for that key.
+ *	\sa Keyboard::IsKeyUp(unsigned char a_cKey)
+ *	\sa Keyboard::IsKeyDown(unsigned char a_cKey)
+ *	\sa Keyboard::IsKeyPressed(unsigned char a_cKey)
+ *	\sa keyboard::IsKeyReleased(unsigned char a_cKey)
+ *	\todo document the keycodes even though they should be obvious. really cbf.
+ */
 enum KEY : unsigned int
 {
 	//Number Keys
