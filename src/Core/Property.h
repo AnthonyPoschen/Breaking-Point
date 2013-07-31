@@ -1,18 +1,23 @@
 //////////////////////////////////////////////////////////////////////////
-///	< Author >		< Anthony Poschen >
-/// < Date >		< 15 - 3 - 2013 >
-/// < Class Brief >	< property class. this allows for property's to be attached to AvObjects  >
+/*! \class		Property
+ *  \brief		this class is the base class for all property based elements.
+ *	\details	property's are part of Node's. they contain things that any object can swap or add a copy of. 
+ *  \details	should be inherited from and have the type added to the base classes enum. the enum is used to identify what property it is for when an object searches to see if it has a certain property.
+ *  \author		Anthony Poschen
+ *  \version	1.0
+ *  \date		15/03/2013
+ *  \copyright N/A
+ *	\todo		Finish Implementing this class and making it interact with Node Class
+ */
 //////////////////////////////////////////////////////////////////////////
-///	< File Define >
 #ifndef _PROPERTY_H_
-#define _PROPERTY_H_
+# define _PROPERTY_H_
 //////////////////////////////////////////////////////////////////////////
-///	< Includes >
+//	Includes 
+
 
 //////////////////////////////////////////////////////////////////////////
-/// < Forward Declares >
-
-
+//  Forward Declares 
 
 //////////////////////////////////////////////////////////////////////////
 class Property 

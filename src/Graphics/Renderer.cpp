@@ -1,12 +1,12 @@
 //////////////////////////////////////////////////////////////////////////
-///	< Author >	< Anthony Poschen >
-///	< Date >	< 20/1/2013 >
-/// < File >	< Renderer >
-/// < Brief >	< implementation of the renderer (currently jsut OpenGl no bridge to Directx >
+//	< Author >	< Anthony Poschen >
+//	< Date >	< 20/1/2013 >
+// < File >	< Renderer >
+// < Brief >	< implementation of the renderer (currently jsut OpenGl no bridge to Directx >
 //////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////
-///	< Includes >
+//	< Includes >
 #include "Renderer.h"
 
 #include "../Graphics/Window.h"
@@ -18,7 +18,7 @@
 #include "../Graphics/ShaderProgram.h"
 
 //////////////////////////////////////////////////////////////////////////
-/// < Forward Declares >
+// < Forward Declares >
 Renderer* Renderer::m_pSingleton = nullptr;
 static const GLfloat g_vertex_buffer_data[] = {
 	-1.0f, -1.0f, 0.0f,

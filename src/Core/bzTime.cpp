@@ -12,10 +12,24 @@
 //////////////////////////////////////////////////////////////////////////
 bzTime* bzTime::m_pSingleton = nullptr;
 
-PYTHON_MODULE(bzTime)
+/*! \defgroup bpTime
+ *  \ingroup PyModules
+ *  \brief Handles Time Based Functions 
+ *  \details can be used to help find delta time or elapsed time.
+ *	\todo Add Elapsed time to Python function list. 
+ */
+PYTHON_MODULE(bpTime)
 {
+/**  
+	 * @addtogroup bpTime 
+	 * @{
+	 *		\page DeltaTime float DeltaTime()
+	 *		This function returns a float which represents the current delta time of the application. 
+	 */
 	using namespace boost::python;
 	def("DeltaTime",&bzTime::DeltaTime);
+
+	/** @} */
 }
 
 //////////////////////////////////////////////////////////////////////////

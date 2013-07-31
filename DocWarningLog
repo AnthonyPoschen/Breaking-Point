@@ -1,28 +1,36 @@
+I:/GitRepos/Breaking-Point/src/Core/bpPython.h:47: Warning: missing title after \defgroup PyModules
+I:/GitRepos/Breaking-Point/src/Core/bzTime.cpp:15: Warning: missing title after \defgroup bpTime
 I:/GitRepos/Breaking-Point/src/Core/Input.cpp:16: Warning: missing title after \defgroup bzInput
-I:/GitRepos/Breaking-Point/src/Core/Input.cpp:190: Warning: documented symbol `bzInput KeyUp' was not declared or defined.
-I:/GitRepos/Breaking-Point/src/Core/Object.h:23: Warning: Unsupported xml/html tag <Type> found
-I:/GitRepos/Breaking-Point/src/Core/Object.h:29: Warning: Unsupported xml/html tag <Casting> found
-I:/GitRepos/Breaking-Point/src/Math/CoreMath.cpp:109: Warning: Unsupported xml/html tag <bzMath> found
+I:/GitRepos/Breaking-Point/src/Core/Utilities.cpp:28: Warning: no matching file member found for 
+void Utilities::ConsoleShow(bool a_bShow)
+Possible candidates:
+ 'void ConsoleShow(bool a_bShow=true)' at line 23 of fileI:/GitRepos/Breaking-Point/src/Core/Utilities.h
+
+I:/GitRepos/Breaking-Point/src/Core/Utilities.cpp:66: Warning: no matching file member found for 
+void Utilities::ConsoleClear()
+Possible candidates:
+ 'void ConsoleClear()' at line 24 of fileI:/GitRepos/Breaking-Point/src/Core/Utilities.h
+
+I:/GitRepos/Breaking-Point/src/Core/Utilities.cpp:87: Warning: no matching file member found for 
+void Utilities::Debug_ConsoleWrite(const char *pFormat,...)
+Possible candidates:
+ 'void Debug_ConsoleWrite(const char *pFormat,...)' at line 26 of fileI:/GitRepos/Breaking-Point/src/Core/Utilities.h
+
+I:/GitRepos/Breaking-Point/src/Core/Utilities.cpp:101: Warning: no matching file member found for 
+void Utilities::Debug_OutputWrite(const char *pFormat,...)
+Possible candidates:
+ 'void Debug_OutputWrite(const char *pFormat,...)' at line 27 of fileI:/GitRepos/Breaking-Point/src/Core/Utilities.h
+
 I:/GitRepos/Breaking-Point/src/Core/AppBase.h:120: Warning: argument 'const' of command @param is not found in the argument list of AppBase::DisplayErrorMessageBox(const char *a_sMessage)
 I:/GitRepos/Breaking-Point/src/Core/AppBase.h:120: Warning: The following parameters of AppBase::DisplayErrorMessageBox(const char *a_sMessage) are not documented:
   parameter 'a_sMessage'
 I:/GitRepos/Breaking-Point/src/Core/AppBase.h:52: Warning: argument 'const' of command @param is not found in the argument list of AppBase::OnCreate(const char *a_sCmdLine)=0
 I:/GitRepos/Breaking-Point/src/Core/AppBase.h:52: Warning: The following parameters of AppBase::OnCreate(const char *a_sCmdLine)=0 are not documented:
   parameter 'a_sCmdLine'
-I:/GitRepos/Breaking-Point/src/Core/Object.h:23: Warning: Unsupported xml/html tag <Type> found
-I:/GitRepos/Breaking-Point/src/Core/Object.h:29: Warning: Unsupported xml/html tag <Casting> found
 I:/GitRepos/Breaking-Point/src/Core/AVObject.h:83: Warning: argument 'a_kVec' of command @param is not found in the argument list of AVObject::GetTranslate()
 I:/GitRepos/Breaking-Point/src/Core/AVObject.h:91: Warning: argument 'a_kVec' of command @param is not found in the argument list of AVObject::GetWorldTranslate()
-I:/GitRepos/Breaking-Point/src/Core/Object.h:23: Warning: Unsupported xml/html tag <Type> found
-I:/GitRepos/Breaking-Point/src/Core/Object.h:29: Warning: Unsupported xml/html tag <Casting> found
-I:/GitRepos/Breaking-Point/src/Core/Object.h:23: Warning: Unsupported xml/html tag <Type> found
-I:/GitRepos/Breaking-Point/src/Core/Object.h:29: Warning: Unsupported xml/html tag <Casting> found
-I:/GitRepos/Breaking-Point/src/Core/Object.h:23: Warning: Unsupported xml/html tag <Type> found
-I:/GitRepos/Breaking-Point/src/Core/Object.h:29: Warning: Unsupported xml/html tag <Casting> found
-I:/GitRepos/Breaking-Point/src/Core/Object.h:23: Warning: Unsupported xml/html tag <Type> found
-I:/GitRepos/Breaking-Point/src/Core/Object.h:29: Warning: Unsupported xml/html tag <Casting> found
-I:/GitRepos/Breaking-Point/src/Core/Object.h:23: Warning: Unsupported xml/html tag <Type> found
-I:/GitRepos/Breaking-Point/src/Core/Object.h:29: Warning: Unsupported xml/html tag <Casting> found
+I:/GitRepos/Breaking-Point/src/Core/Rtti.h:25: Warning: The following parameters of Rtti::Rtti(const char *a_cpName, const Rtti *a_pkBaseType=0) are not documented:
+  parameter 'a_pkBaseType'
 I:/GitRepos/Breaking-Point/src/Graphics/ShaderFactory.cpp:298: Warning: Unsupported xml/html tag <FIX> found
 I:/GitRepos/Breaking-Point/src/Graphics/ShaderFactory.cpp:300: Warning: Unsupported xml/html tag <FIX> found
 I:/GitRepos/Breaking-Point/src/Graphics/ShaderFactory.cpp:169: Warning: Unsupported xml/html tag <FIX> found
@@ -34,8 +42,8 @@ I:/GitRepos/Breaking-Point/src/Core/AppBase.h:52: Warning: The following paramet
   parameter 'a_sCmdLine'
 I:/GitRepos/Breaking-Point/src/Core/AVObject.h:83: Warning: argument 'a_kVec' of command @param is not found in the argument list of AVObject::GetTranslate()
 I:/GitRepos/Breaking-Point/src/Core/AVObject.h:91: Warning: argument 'a_kVec' of command @param is not found in the argument list of AVObject::GetWorldTranslate()
-I:/GitRepos/Breaking-Point/src/Core/Object.h:23: Warning: Unsupported xml/html tag <Type> found
-I:/GitRepos/Breaking-Point/src/Core/Object.h:29: Warning: Unsupported xml/html tag <Casting> found
+I:/GitRepos/Breaking-Point/src/Core/Rtti.h:25: Warning: The following parameters of Rtti::Rtti(const char *a_cpName, const Rtti *a_pkBaseType=0) are not documented:
+  parameter 'a_pkBaseType'
 <BuildBNFS>:298: Warning: Unsupported xml/html tag <FIX> found
 <BuildBNFS>:300: Warning: Unsupported xml/html tag <FIX> found
 <ReleaseShaderScan>:169: Warning: Unsupported xml/html tag <FIX> found

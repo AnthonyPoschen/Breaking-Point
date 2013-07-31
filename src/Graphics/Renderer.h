@@ -1,22 +1,29 @@
 //////////////////////////////////////////////////////////////////////////
-///	< Author >		< Anthony Poschen >
-/// < Date >		< 18 - 1 - 2013 >
-/// < Class Brief >	< Rendering class for rendering to screen  >
+/*! \class		Renderer
+ *  \brief		Handles drawing images to the screen at runtime.
+ *	\details	
+ *  \details	
+ *  \author		Anthony Poschen
+ *  \version	1.0
+ *  \date		18/01/2013
+ *  \copyright N/A
+ */
 //////////////////////////////////////////////////////////////////////////
-///	< File Define >
 #ifndef _RENDERER_H_
-#define _RENDERER_H_
+# define _RENDERER_H_
 //////////////////////////////////////////////////////////////////////////
-///	< Includes >
+//	Includes 
 #include <Windows.h>
+#include "bzMesh.h"
+
 //////////////////////////////////////////////////////////////////////////
-/// < Forward Declares >
+//  Forward Declares 
 class Window;
 class Camera;
 class Node;
 class ShaderProgram;
 class bzMesh;
-#include "bzMesh.h"
+
 //////////////////////////////////////////////////////////////////////////
 class Renderer
 {

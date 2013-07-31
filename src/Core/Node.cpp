@@ -1,17 +1,17 @@
 //////////////////////////////////////////////////////////////////////////
-///	< Author >	< Anthony Poschen >
-///	< Date >	< 17/2/2013 >
-/// < File >	< Node >
-/// < Brief >	< Node class Implementation >
+//	< Author >	< Anthony Poschen >
+//	< Date >	< 17/2/2013 >
+//	< File >	< Node >
+//	< Brief >	< Node class Implementation >
 //////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////
-///	< Includes >
+//	< Includes >
 #include "Node.h"
 #include <boost/smart_ptr.hpp>
 
 //////////////////////////////////////////////////////////////////////////
-/// < Forward Declares >
+// < Forward Declares >
 const Rtti Node::TYPE("Node",&AVObject::TYPE);
 
 //////////////////////////////////////////////////////////////////////////
@@ -81,7 +81,7 @@ void Node::GetChildByType(const Rtti& a_TYPE, boost::container::vector<AVObject*
 }
 
 //////////////////////////////////////////////////////////////////////////
-AVObject* Node::getChildByName(const char* a_cpName)
+AVObject* Node::GetChildByName(const char* a_cpName)
 {
 	boost::container::string kName(a_cpName);
 
@@ -96,7 +96,7 @@ AVObject* Node::getChildByName(const char* a_cpName)
 
 		if(kNode != nullptr)
 		{
-			AVObject* kRecurObj = kNode->getChildByName(a_cpName);
+			AVObject* kRecurObj = kNode->GetChildByName(a_cpName);
 			if(kRecurObj != nullptr)
 			{
 				return kRecurObj;

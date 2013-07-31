@@ -15,6 +15,9 @@
 
 /*! \defgroup bzInput 
  *	\ingroup PyModules
+ *	\brief This Module handles mouse and keyboard input. 
+ *	\details To use this module import bzInput.
+ *	\page bzInputOverview bzInput Overview
  */
 PYTHON_MODULE(bzInput)
 {
@@ -22,19 +25,70 @@ PYTHON_MODULE(bzInput)
 
 	using namespace boost::python;
 	// <Keyboard Funcitons >
-
+	/**  
+	 * @addtogroup bzInput 
+	 * @{   
+	 *
+	 *		\page KeyBoardOverview KeyBoard Overview
+	 *		\details Here is a list of keyboard functions for Python within the bzInput Module.
+	 *		
+	 *
+	 *		\page KeyUp KeyUp( KEY )
+	 *      returns bool - True if key on keyboard is Up. False otherwise
+	 *	    
+	 *		\page KeyDown KeyDown( KEY )
+	 *		returns bool - True if key on keyboard is down. False otherwise
+	 *
+	 *		\page KeyPress KeyPress( KEY )
+	 *		returns bool - Returns true on the first instance only the key is down. false if held down or up.
+	 *
+	 *		\page KeyRelease KeyRelease( KEY )
+	 *		returns bool - Returns true first instance key is not down. returns false if key is up or down. 
+	 */ 
 	def("KeyUp",&Keyboard::IsKeyUp);
 	def("KeyDown",&Keyboard::IsKeyDown);
 	def("KeyPress",&Keyboard::IsKeyPressed);
 	def("KeyRelease",&Keyboard::IsKeyReleased);
 	// <Mouse Funcitons>
-
-
+	
+	/**
+	 *	\page MouseOverview Mouse Overview
+	 *	\details These are the Mouse Based Commands
+	 *	\page CursorPos CursorPos()
+	 *	returns float2 - current mouse cordinates relative to game window
+	 *
+	 *	\page CursorScreenPos CursorScreenPos()
+	 *	returns float2 - Current Mouse Cordinates relative to computer monitors.
+	 *
+	 *	\page CursorShow CursorShow( BOOL )
+	 *	returns void - takes in a Bool to determine if mouse should be visible while over window. ( turn off if drawing a custom mouse at mouse location)
+	*/
 	// to do list.. implement mouse.
 	def("CursorPos",&Mouse::bpGetPos);
 	def("CursorScreenPos",&Mouse::bpGetPosToScreen);
 	def("CursorShow",Mouse::Show);
 
+	/**
+	*	\page KEYS Keyboard KEYS
+	*	\details this is a list of all input (case sensative) that is accepted by the keyboard functions to check key input<br>
+	*	\details <br><b>Numeric Keys</b><br>
+	*	\details KEY_0 , KEY_1 , KEY_2 , KEY_3 , KEY_4 , KEY_5 , KEY_6 , KEY_7 , KEY_8 , KEY_9<br>
+	*	\details NUMPAD0 , NUMPAD1 , NUMPAD2 , NUMPAD3 , NUMPAD4 , NUMPAD5 NUMPAD6 , NUMPAD7 , NUMPAD8 , NUMPAD9<br>
+	*	\details <br><b>AlphaBetic</b><br>
+	*	\details A , a , B , b , C , c , D , d , E , e , F , f , G , g , H , h , I , i , J , j , K , k , L , l , M , m , N , n , O , o , P , p , Q , q , R , r , S , s , T , t , U , u , V , v , W , w , X , x , Y , y , Z , z<br>
+	*	\details <br><b>Arrow Keys</b><br>
+	*	\details LEFT , RIGHT , UP , DOWN<br>
+	*	\details <br><b>Special Keys</b><br>
+	*	\details NUMPADMUL ( * ), NUMPADADD ( + ), NUMPADSEP ( enter key), NUMPADSUB ( - ), NUMPADDEC( . ), NUMPADDIVIDE( / ), NUMLOCK (numlock key)<br> 
+	*	\details CTRL , ALT , SHIFT - recognises Left and Right versions of these keys<br>
+	*	\details LCTRL , LATL , LSHIFT - only left hand side versions reconised.<br>
+	*	\details RCTRL , RALT , RSHIFT - only right hand side versions reconised.<br>
+	*	\details RETURN | ENTER , BACKSPACE , SPACE , ESCAPE | ESC , TAB , CAPSLOCK , CAPS<br>
+	*	\details PAGEUP , PAGEDOWN , END , HOME , SELECT , PRINT , INS (insert) , HELP , SCRLLOCK | SCROLLLOCK , PRINTSCREEN , PRNTSCRN<br>
+	*	\details PAUSE , LWIN , RWIN (windows keys) , APPS , SLEEP , COLON , PLUS , EQUAL , LESSTHAN , COMMA , MINUS , UNDERSCORE , PERIOD , GREATERTHAN , FWDSLASH<br>
+	*	\details QMARK , QUESTIONMARK , TILDE | ` | ~ , LEFTBRACE , RIGHTBRACE , BCKSLASH | BACKSLASH, PIPE , QUOTE , DOUBLEQUOTE<br>
+	*/		
+	/** @} */
 
 	// <Keyboard Extentions>
 	enum_<KEY>("KEY")
@@ -49,31 +103,57 @@ PYTHON_MODULE(bzInput)
 		.value("KEY_8",KEY_8)
 		.value("KEY_9",KEY_9)
 		.value("A",KEY_A)
+		.value("a",KEY_A)
 		.value("B",KEY_B)
+		.value("b",KEY_B)
 		.value("C",KEY_C)
+		.value("c",KEY_C)
 		.value("D",KEY_D)
+		.value("d",KEY_D)
 		.value("E",KEY_E)
+		.value("e",KEY_E)
 		.value("F",KEY_F)
+		.value("f",KEY_F)
 		.value("G",KEY_G)
+		.value("g",KEY_G)
 		.value("H",KEY_H)
+		.value("h",KEY_H)
 		.value("I",KEY_I)
+		.value("i",KEY_I)
 		.value("J",KEY_J)
+		.value("j",KEY_J)
 		.value("K",KEY_K)
+		.value("k",KEY_K)
 		.value("L",KEY_L)
+		.value("l",KEY_L)
 		.value("M",KEY_M)
+		.value("m",KEY_M)
 		.value("N",KEY_N)
+		.value("n",KEY_N)
 		.value("O",KEY_O)
+		.value("o",KEY_O)
 		.value("P",KEY_P)
+		.value("p",KEY_P)
 		.value("Q",KEY_Q)
+		.value("q",KEY_Q)
 		.value("R",KEY_R)
+		.value("r",KEY_R)
 		.value("S",KEY_S)
+		.value("s",KEY_S)
 		.value("T",KEY_T)
+		.value("t",KEY_T)
 		.value("U",KEY_U)
+		.value("u",KEY_U)
 		.value("V",KEY_V)
+		.value("v",KEY_V)
 		.value("W",KEY_W)
+		.value("w",KEY_W)
 		.value("X",KEY_X)
+		.value("x",KEY_X)
 		.value("Y",KEY_Y)
+		.value("y",KEY_Y)
 		.value("Z",KEY_Z)
+		.value("z",KEY_Z)
 
 		// Arrow KEYS
 		.value("LEFT",KEY_LEFT)
@@ -177,6 +257,8 @@ PYTHON_MODULE(bzInput)
 		.value("QMARK",KEY_QMARK)
 		.value("QUESTIONMARK",KEY_QMARK)
 		.value("TILDE",KEY_TILDE)
+		.value("`",KEY_TILDE)
+		.value("~",KEY_TILDE)
 		.value("LEFTBRACE",KEY_LEFTBRACE)
 		.value("BCKSLASH",KEY_BACKSLASH)
 		.value("BACKSLASH",KEY_BACKSLASH)
@@ -187,9 +269,3 @@ PYTHON_MODULE(bzInput)
 }
 
 //////////////////////////////////////////////////////////////////////////
-	/*! \fn bzInput.KeyUp(char a_cKey)
-	 *	\brief check if key is up 
-	 *  \param char - keyboard charactor to check
-	 *  \return bool - result of Keystate
-	 *	\ingroup bzInput
-	 */

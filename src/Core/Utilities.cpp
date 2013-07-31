@@ -1,12 +1,12 @@
 //////////////////////////////////////////////////////////////////////////
-///	< Author >	< Anthony Poschen >
-///	< Date >	< 5/5/2013 >
-/// < File >	< Utilities >
-/// < Brief >	< Utilities for Debugging programs >
+//	< Author >	< Anthony Poschen >
+//	< Date >	< 5/5/2013 >
+//  < File >	< Utilities >
+//  < Brief >	< Utilities for Debugging programs >
 //////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////
-///	< Includes >
+//	< Includes >
 #include "Utilities.h"
 #include <windows.h>
 #include <stdio.h>
@@ -15,9 +15,9 @@
 #include "bpPython.h"
 
 //////////////////////////////////////////////////////////////////////////
-/// < Forward Declares >
+// < Forward Declares >
 
-PYTHON_MODULE(bzUtil)
+PYTHON_MODULE(bpUtil)
 {
 	using namespace boost::python;
 	def("ConsoleShow",&Utilities::ConsoleShow);

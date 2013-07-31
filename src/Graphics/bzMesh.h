@@ -1,19 +1,25 @@
 //////////////////////////////////////////////////////////////////////////
-///	< Author >		< Anthony Poschen >
-/// < Date >		< 23 - 3 - 2013 >
-/// < Class Brief >	< This is the Root Mesh Class. it inherits from AVObject and handles the data of a mesh  >
+/*! \class		bzMesh
+ *  \brief		This is the root mesh class.
+ *	\details	it handles the storing of 3d geometory. 
+ *  \details	
+ *  \author		Anthony Poschen
+ *  \version	1.0
+ *  \date		23/03/2013
+ *  \copyright N/A
+ */
 //////////////////////////////////////////////////////////////////////////
-///	< File Define >
 #ifndef _BZMESH_H_
-#define _BZMESH_H_
+# define _BZMESH_H_
 //////////////////////////////////////////////////////////////////////////
-///	< Includes >
+//	Includes 
 #include "../core/AVObject.h"
-//////////////////////////////////////////////////////////////////////////
-/// < Forward Declares >
-class AVObject;
 
 //////////////////////////////////////////////////////////////////////////
+//  Forward Declares 
+class AVObject;
+
+///////////////////////////////////////////////////////////////////////
 class bzMesh : public AVObject
 {
 public:

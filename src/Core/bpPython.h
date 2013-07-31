@@ -44,7 +44,10 @@ void BOOST_PP_CAT(init_module_, name)() // calls the final function from BOOST_P
  */
 #define PYTHON_MODULE(name) PYTHON_MODULE_INIT(name)
 
-
+/** @defgroup PyModules 
+*	/brief This is a list of all Python Modules available to built in Python interpretor.
+*	/details This currently only lists all custom made Modules from native c++ code within this application. 
+*/
 //////////////////////////////////////////////////////////////////////////
 class bpPython
 {

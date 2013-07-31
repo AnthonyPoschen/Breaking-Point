@@ -1,17 +1,23 @@
 //////////////////////////////////////////////////////////////////////////
-///	< Author >	< Anthony Poschen >
-///	< Date >	< 5/5/2013 >
-/// < File >	< Utilities >
-/// < Brief >	< Utility code for debugging purposes >
+/*! \class		Utilities
+ *  \brief		Utility code to help program.
+ *	\details	Holds tools and functions to help debug and store repetitive
+ *  \details	helper code in a commonly found location
+ *  \author		Anthony Poschen
+ *  \version	1.0
+ *  \date		5/05/2013
+ *  \copyright N/A
+ */
 //////////////////////////////////////////////////////////////////////////
-
+#ifndef _UTILITIES_H_
+# define _UTILITIES_H_
 //////////////////////////////////////////////////////////////////////////
-///	< Includes >
+//	Includes 
 #include <stdio.h>
 #include <assert.h>
 
 //////////////////////////////////////////////////////////////////////////
-/// < Forward Declares >
+//  Forward Declares 
 namespace Utilities
 {
 	void ConsoleShow(bool a_bShow = true);
@@ -21,4 +27,7 @@ namespace Utilities
 	void Debug_OutputWrite(const char* pFormat, ...);
 }
 
+
+//////////////////////////////////////////////////////////////////////////
+#endif // _UTILITIES_H_
 //////////////////////////////////////////////////////////////////////////
