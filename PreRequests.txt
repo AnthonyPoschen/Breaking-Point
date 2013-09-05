@@ -1,3 +1,4 @@
 3rd party SDK's Required to run. 
 
 Stackless Python 3.2.2
+http://www.stackless.com/wiki/Download
