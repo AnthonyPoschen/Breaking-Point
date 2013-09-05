@@ -1,0 +1,23 @@
+// set the name of the program to be recognised in code
+
+ProgramName oProgram
+
+// set the Vertex Pixel and Geo Shader lists that are used
+// space seperation and no forward leading slashes for directorys
+// VertextShaders | PixelShaders | GeometryShaders
+// e.g VertexShaders mainv.glsl test\testv.glsl 
+// keep in mind only 1 glsl for each shader type can have a "main()" as the entry point into the shader
+
+VertexShaders test.vert
+PixelShaders test.frag
+GeometryShaders
+
+
+#VertexInput
+
+CM_DEFINED PROJVIEW g_ProjView 0 0
+CM_
+#endInput
+
+
+
