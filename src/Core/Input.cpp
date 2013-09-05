@@ -13,24 +13,24 @@
 //////////////////////////////////////////////////////////////////////////
 //  Forward Declares 
 
-/*! \defgroup bzInput 
+/*! \defgroup bpInput 
  *	\ingroup PyModules
  *	\brief This Module handles mouse and keyboard input. 
  *	\details To use this module import bzInput.
  *	\page bzInputOverview bzInput Overview
  */
-PYTHON_MODULE(bzInput)
+PYTHON_MODULE(bpInput)
 {
 
 
 	using namespace boost::python;
 	// <Keyboard Funcitons >
 	/**  
-	 * @addtogroup bzInput 
+	 * @addtogroup bpInput 
 	 * @{   
 	 *
 	 *		\page KeyBoardOverview KeyBoard Overview
-	 *		\details Here is a list of keyboard functions for Python within the bzInput Module.
+	 *		\details Here is a list of keyboard functions for Python within the bpInput Module.
 	 *		
 	 *
 	 *		\page KeyUp KeyUp( KEY )

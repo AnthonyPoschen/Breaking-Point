@@ -1,21 +1,21 @@
 //////////////////////////////////////////////////////////////////////////
-///	< Author >	< Anthony Poschen >
-///	< Date >	< 10/12/2012 >
-/// < File >	< CoreMath >
-/// < Brief >	< Core Math standard functions >
+//	< Author >	< Anthony Poschen >
+//	< Date >	< 10/12/2012 >
+// < File >	< CoreMath >
+// < Brief >	< Core Math standard functions >
 //////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////
-///	< Includes >
+//	< Includes >
 #include "CoreMath.h"
 #include "../Core/bpPython.h"
 //////////////////////////////////////////////////////////////////////////
-/// < Forward Declares >
+// < Forward Declares >
 
 
 //////////////////////////////////////////////////////////////////////////
-/// < Setup Python Access>
-PYTHON_MODULE(bzMath)
+// < Setup Python Access>
+PYTHON_MODULE(bpMath)
 {
 	using namespace boost::python;
 
@@ -106,7 +106,7 @@ PYTHON_MODULE(bzMath)
 
 
 	//////////////////////////////////////////////////////////////////////////
-	/// <bzMath Global Scope Funcitons>
+	/// bzMath Global Scope Funcitons
 	def("UnitiseVector",&float2::UnitiseVector);
 	def("UnitiseVector",&float3::UnitiseVector);
 	def("UnitiseVector",&float4::UnitiseVector);

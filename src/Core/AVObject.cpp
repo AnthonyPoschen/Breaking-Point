@@ -105,3 +105,10 @@ void AVObject::SetName(const char* a_cpName)
 {
 	m_kName = a_cpName;
 }
+
+//////////////////////////////////////////////////////////////////////////
+void AVObject::SetScale(float a_fScale)
+{
+	m_kLocalTransform.m_fScale = a_fScale;
+	m_kWorldTransform.m_fScale = a_fScale;
+}

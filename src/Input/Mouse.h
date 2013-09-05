@@ -97,7 +97,7 @@ public:
 	 */
 	bool IsLockedToWindow();
 
-
+	 
 	static bool IsButtonDown(unsigned int a_uiButton);
 	static bool IsButtonUp(unsigned int a_uiButton);
 	static bool IsButtonPressed(unsigned int a_uiButton);

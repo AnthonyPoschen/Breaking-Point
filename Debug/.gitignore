@@ -7,9 +7,13 @@
 *.sln.docstates
 
 # Build results
-
-#[Dd]ebug/
-#[Rr]elease/
+*.exe
+*.exp
+*.lib
+*.pdb
+*.lnk
+[Dd]ebug/
+[Rr]elease/
 x64/
 build/
 [Bb]in/

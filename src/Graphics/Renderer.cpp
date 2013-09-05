@@ -160,6 +160,9 @@ void Renderer::DrawScene(Node& a_kNode , Camera& a_kCamera, ShaderProgram a_kPro
 	matrix4 mModelMat , mTranslate , mRotate , mScale;
 	matrix4 mMVP;
 	
+	//rotate testmesh
+	matrix3 oMat = TestMesh->GetTransform().m_kRotate;
+	
 	// for every object do the below
 	Transform oTransform = TestMesh->GetWorldTransform();
 	matrix4::MakeScaleMatrix(mScale,oTransform.m_fScale);

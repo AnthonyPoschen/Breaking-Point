@@ -1,13 +1,18 @@
 //////////////////////////////////////////////////////////////////////////
-///	< Author >	< Anthony Poschen >
-///	< Date >	< 5/12/2012 >
-/// < File >	< Math >
-/// < Brief >	< Math includer. this auto includes all math files. and builds base funcitonality >
+/*! \class		CoreMath
+ *  \brief		Main Math include it includes all math files and supplies helper varriables.
+ *	\details	
+ *  \details	
+ *  \author		Anthony Poschen
+ *  \version	1.0
+ *  \date		05/12/2012
+ *  \copyright N/A
+ */
 //////////////////////////////////////////////////////////////////////////
 #ifndef _COREMATH_H_
-#define _COREMATH_H_
+# define _COREMATH_H_
 //////////////////////////////////////////////////////////////////////////
-///	< Includes >
+//	Includes 
 #include "float4.h"
 #include "float3.h"
 #include "float2.h"
@@ -15,8 +20,9 @@
 #include "Quaternion.h"
 #include "UniversalTypes.h"
 #include <math.h>
+
 //////////////////////////////////////////////////////////////////////////
-/// < Forward Declares >
+//  Forward Declares 
 #ifndef __SPU__
 const Float32 BZ_PI = 3.1415926535897932f;
 const Float32 BZ_HALF_PI = 0.5f * BZ_PI;

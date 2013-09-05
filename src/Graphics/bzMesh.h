@@ -35,8 +35,10 @@ protected:
 	unsigned int m_uiVAOID; // Vertex Array Object.
 	unsigned int m_uiVertexBuffer;
 	unsigned int m_uiVertColorBuffer; 
+	unsigned int m_uiIndicieBuffer;
 	float* vertexdatatest;
 	float* vertcolors;
+
 private:
 	// used internally by Renderer Class to render its contents
 	virtual void Render();

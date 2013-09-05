@@ -154,6 +154,13 @@ doxygen.exe bpdoxyfile</Command>
     <ClInclude Include="Math\Quaternion.h" />
     <ClInclude Include="Math\UniversalTypes.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Release\Data\scripts\MyModule.py" />
+    <None Include="..\Release\Data\shaders\source\New Text Document.txt" />
+    <None Include="..\Release\Data\shaders\source\test.frag" />
+    <None Include="..\Release\Data\shaders\source\test.vert" />
+    <None Include="..\Release\Data\shaders\test.nsf" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

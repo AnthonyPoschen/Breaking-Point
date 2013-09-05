@@ -23,13 +23,14 @@
 #include <string>
 #include "Utilities.h"
 
+
 //////////////////////////////////////////////////////////////////////////
 // < Forward Declares >
 
 //////////////////////////////////////////////////////////////////////////
 bool Application::OnCreate(const char* a_sCmdLine)
 {
-	
+
 	Window::Create("my Window",1024 , 768 , true , true);
 	Utilities::ConsoleShow();
 	bpPython::Create();
@@ -49,13 +50,13 @@ bool Application::OnCreate(const char* a_sCmdLine)
 	oFrustrum.m_fFieldOfView = 90.0f;
 	oFrustrum.m_fScreenAspectRatio = (float)Window::Get()->GetWidth() / (float)Window::Get()->GetHeight();
 	Camera* oCam = new Camera(oFrustrum);
-	oCam->SetWorldTranslate(float3(0,0,10));
+	oCam->SetWorldTranslate(float3(0,4,10));
 	oCam->LookAt(float3(0,0,0),float3(0,1,0));
 	m_kRootNode->AttachChild(oCam);
 	m_kpCamera = oCam;
 	m_kRootNode->Update(0);
 	m_kRootNode->SetName("root");
-
+	m_kRootNode->SetScale(4.0f);
 	return true;
 }
 

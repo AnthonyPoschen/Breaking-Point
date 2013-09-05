@@ -16,6 +16,18 @@
     <Filter Include="Math">
       <UniqueIdentifier>{3eea51fe-78e4-4c2e-afde-9bbcaf64c82c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Data">
+      <UniqueIdentifier>{c9eae6f9-5bf6-4afc-b0e6-4ca0fd37ad9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\Scripts">
+      <UniqueIdentifier>{1eeec09c-6671-4ebd-a094-bf343c65192b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\Shaders">
+      <UniqueIdentifier>{f1031380-10a5-4619-b41d-909db8c84943}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\Shaders\Source">
+      <UniqueIdentifier>{b2295479-d804-4fac-82e6-b1c7df3ce029}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -198,5 +210,22 @@
     <ClInclude Include="Core\bpPython.h">
       <Filter>Core</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Release\Data\scripts\MyModule.py">
+      <Filter>Data\Scripts</Filter>
+    </None>
+    <None Include="..\Release\Data\shaders\source\test.frag">
+      <Filter>Data\Shaders\Source</Filter>
+    </None>
+    <None Include="..\Release\Data\shaders\source\test.vert">
+      <Filter>Data\Shaders\Source</Filter>
+    </None>
+    <None Include="..\Release\Data\shaders\source\New Text Document.txt">
+      <Filter>Data\Shaders\Source</Filter>
+    </None>
+    <None Include="..\Release\Data\shaders\test.nsf">
+      <Filter>Data\Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>
