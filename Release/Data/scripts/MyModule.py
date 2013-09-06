@@ -14,10 +14,9 @@ def Speak():
 		if(bShowFps == True):
 			print(( 1 / bpTime.DeltaTime()));
 	
-
 	f2MousePos = CursorPos();
 	print(f2MousePos.X);
 	print(f2MousePos.Y);
 	CursorShow(bShowFps);
-	
+	print(bShowFps);
 	return;

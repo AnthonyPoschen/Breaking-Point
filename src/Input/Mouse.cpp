@@ -268,7 +268,7 @@ void Mouse::Show(bool a_bShow)
 		return;
 	Get()->m_bShow = a_bShow;
 	if(a_bShow == false)
-		while(ShowCursor(false) > 0);
+		while(ShowCursor(false) >= 0);
 	else
-		while(ShowCursor(true) < 1);
+		while(ShowCursor(true) <= 1);
 }
