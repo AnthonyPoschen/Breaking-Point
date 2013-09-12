@@ -15,7 +15,7 @@
 //////////////////////////////////////////////////////////////////////////
 //	Includes 
 #include <Windows.h>
-#include "bzMesh.h"
+#include "bpMesh.h"
 
 //////////////////////////////////////////////////////////////////////////
 //  Forward Declares 
@@ -23,7 +23,7 @@ class Window;
 class Camera;
 class Node;
 class ShaderProgram;
-class bzMesh;
+class bpMesh;
 
 //////////////////////////////////////////////////////////////////////////
 class Renderer
@@ -69,8 +69,7 @@ private:
 	// other stuff needed for opengl renderer to function (limited includes in header)
 
 	// temp stuff
-	bzMesh* TestMesh;
-	unsigned int m_uiMVPID;
+	unsigned int m_uiMVPID; 
 };
 //////////////////////////////////////////////////////////////////////////
 #endif // _RENDERER_H_

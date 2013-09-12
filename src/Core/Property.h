@@ -14,28 +14,32 @@
 # define _PROPERTY_H_
 //////////////////////////////////////////////////////////////////////////
 //	Includes 
-
-
+#include <boost/smart_ptr.hpp>
+#include "Object.h"
 //////////////////////////////////////////////////////////////////////////
 //  Forward Declares 
+class Property;
+typedef boost::shared_ptr<Property> PropertyPtr;
 
 //////////////////////////////////////////////////////////////////////////
-class Property 
+class Property : public Object
 {
 public:
-
+	virtual const Rtti& GetType() const { return TYPE; }
 	enum PROPERTY_TYPE : unsigned int
 	{
 		SHADER_PROGRAM = 0,
 		MESH = 1
-
 	};
 	Property();
+	Property(PROPERTY_TYPE a_eType);
 	virtual ~Property();
+	PROPERTY_TYPE GetPropertyType();
+
 
 protected:
 	unsigned int m_uiPropertyType;
-
+	static const Rtti TYPE;
 private:
 	
 };

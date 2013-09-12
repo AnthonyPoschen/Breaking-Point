@@ -14,6 +14,7 @@
 //////////////////////////////////////////////////////////////////////////
 //	Includes 
 #include "AVObject.h"
+#include "PropertyManager.h"
 #include <boost/container/vector.hpp>
 #include <boost/smart_ptr.hpp>
 
@@ -22,12 +23,11 @@
 typedef boost::shared_ptr<Node> NodePtr;
 
 //////////////////////////////////////////////////////////////////////////
-class Node : public AVObject
+class Node : public AVObject , public PropertyManager
 {
 public:
 
 	virtual const Rtti& GetType() const { return TYPE; }
-	static const Rtti& Type() { return TYPE;}
 	Node();
 	~Node();
 
@@ -62,7 +62,6 @@ public:
 	void Update(float a_fDelta);
 
 	operator AVObject()  {return (AVObject)*this;}
-	
 protected:
 	static const Rtti TYPE;
 	

@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////////
-/*! \class		bzMesh
+/*! \class		bpMesh
  *  \brief		This is the root mesh class.
  *	\details	it handles the storing of 3d geometory. 
  *  \details	
@@ -10,25 +10,24 @@
  *  \copyright N/A
  */
 //////////////////////////////////////////////////////////////////////////
-#ifndef _BZMESH_H_
-# define _BZMESH_H_
+#ifndef _BPMESH_H_
+# define _BPMESH_H_
 //////////////////////////////////////////////////////////////////////////
 //	Includes 
-#include "../core/AVObject.h"
+#include "../core/Property.h"
 
 //////////////////////////////////////////////////////////////////////////
 //  Forward Declares 
-class AVObject;
+class Property;
 
 ///////////////////////////////////////////////////////////////////////
-class bzMesh : public AVObject
+class bpMesh : public Property
 {
 public:
 	friend class Renderer;
 	virtual const Rtti& GetType() const { return TYPE; }
-	bzMesh();
-	~bzMesh();
-
+	bpMesh();
+	~bpMesh();
 protected:
 	static const Rtti TYPE;
 
@@ -38,11 +37,11 @@ protected:
 	unsigned int m_uiIndicieBuffer;
 	float* vertexdatatest;
 	float* vertcolors;
-
+	unsigned int* Indicies;
 private:
 	// used internally by Renderer Class to render its contents
 	virtual void Render();
 };
 //////////////////////////////////////////////////////////////////////////
-#endif // _BZMESH_H_
+#endif // _bpMesh_H_
 //////////////////////////////////////////////////////////////////////////

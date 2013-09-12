@@ -9,7 +9,7 @@
 //	< Includes >
 #include "Node.h"
 #include <boost/smart_ptr.hpp>
-
+#include "Utilities.h"
 //////////////////////////////////////////////////////////////////////////
 // < Forward Declares >
 const Rtti Node::TYPE("Node",&AVObject::TYPE);
@@ -65,7 +65,7 @@ void Node::GetChildByType(const Rtti& a_TYPE, boost::container::vector<AVObject*
 		{
 			a_vResult.push_back(kObj);
 		}
-		Node* kNode = Node::DynamicCast<Node>(kObj);
+		Node* kNode = Utilities::DynamicCast<Node>(kObj);
 		
 		if(kNode != nullptr)
 		{
@@ -92,7 +92,7 @@ AVObject* Node::GetChildByName(const char* a_cpName)
 		{
 			return kObj;
 		}
-		Node* kNode = Node::DynamicCast<Node>(kObj);
+		Node* kNode = Utilities::DynamicCast<Node>(kObj);
 
 		if(kNode != nullptr)
 		{

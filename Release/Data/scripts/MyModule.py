@@ -9,7 +9,7 @@ def Speak():
 	global bShowFps;
 	bpUtil.ConsoleClear();
 	if(bpTime.DeltaTime() != 0):
-		if(KeyPress(KEY.KEY_0)):
+		if(KeyPress(KEY.KEY_0) or KeyPress(KEY.NUMPAD0)):
 			bShowFps = not bShowFps;
 		if(bShowFps == True):
 			print(( 1 / bpTime.DeltaTime()));

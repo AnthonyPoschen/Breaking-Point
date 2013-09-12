@@ -50,15 +50,25 @@ bool Application::OnCreate(const char* a_sCmdLine)
 	oFrustrum.m_fFieldOfView = 90.0f;
 	oFrustrum.m_fScreenAspectRatio = (float)Window::Get()->GetWidth() / (float)Window::Get()->GetHeight();
 	Camera* oCam = new Camera(oFrustrum);
-	oCam->SetWorldTranslate(float3(0,4,10));
+	oCam->SetWorldTranslate(float3(0,-4,-10));
 	oCam->LookAt(float3(0,0,0),float3(0,1,0));
 	m_kRootNode->AttachChild(oCam);
 	m_kpCamera = oCam;
 	m_kRootNode->Update(0);
 	m_kRootNode->SetName("root");
-	m_kRootNode->SetScale(4.0f);
+	m_kRootNode->SetScale(1.0f);
+
+
+	// use case of adding a property then getting it back out
+	PropertyPtr oPtr(new bpMesh);
+	m_kRootNode->AttachProperty(oPtr);
+	PropertyPtr oProp = m_kRootNode->GetProperty(Property::PROPERTY_TYPE::MESH);
+	bpMesh* opMesh = Utilities::DynamicCast<bpMesh>((oProp.get()));
+	//end use case
+
 	return true;
 }
+
 
 //////////////////////////////////////////////////////////////////////////
 bool Application::OnUpdate()
@@ -90,7 +100,7 @@ bool Application::OnUpdate()
 	m_kpCamera->LookAt(float3(0,0,0),float3(0,1,0));
 	m_kpCamera->SetTranslate(kPos);
 	bpPython::exec("MyModule.Speak();");
-
+	
 	m_kRootNode->Update(bzTime::Get()->DeltaTime());
 	return Window::Get()->Tick();
 }

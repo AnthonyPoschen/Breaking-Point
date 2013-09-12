@@ -16,7 +16,8 @@
 
 #include "../Core/Camera.h"
 #include "../Graphics/ShaderProgram.h"
-
+#include "../core/Node.h"
+#include "../Core/Utilities.h"
 //////////////////////////////////////////////////////////////////////////
 // < Forward Declares >
 Renderer* Renderer::m_pSingleton = nullptr;
@@ -124,16 +125,16 @@ Renderer::Renderer(Window* a_pWindow)
 	glViewport(0,0,Window::Get()->GetWidth(),
 		Window::Get()->GetHeight());
 
-
+	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_LEQUAL);
+	glDepthMask(GL_TRUE);
 	// temp
-	TestMesh = new bzMesh;
 	m_uiMVPID  = 0; 
 }
 
 //////////////////////////////////////////////////////////////////////////
 Renderer::~Renderer()
 {
-	delete TestMesh;
 	wglDeleteContext(m_hRC);
 }
 
@@ -161,10 +162,10 @@ void Renderer::DrawScene(Node& a_kNode , Camera& a_kCamera, ShaderProgram a_kPro
 	matrix4 mMVP;
 	
 	//rotate testmesh
-	matrix3 oMat = TestMesh->GetTransform().m_kRotate;
+	matrix3 oMat = a_kNode.GetTransform().m_kRotate;
 	
 	// for every object do the below
-	Transform oTransform = TestMesh->GetWorldTransform();
+	Transform oTransform = a_kNode.GetWorldTransform();
 	matrix4::MakeScaleMatrix(mScale,oTransform.m_fScale);
 	matrix4::MakeRotate(mRotate,oTransform.m_kRotate);
 	matrix4::MakeTranslateMatrix(mTranslate,oTransform.m_kTranslate);
@@ -179,8 +180,11 @@ void Renderer::DrawScene(Node& a_kNode , Camera& a_kCamera, ShaderProgram a_kPro
 	// get the uniform and put in the model view projection matrix (this needs to be called after use program
 	m_uiMVPID = glGetUniformLocation(a_kProgram.m_uiProgramID,"MVP");
 	glUniformMatrix4fv(m_uiMVPID,1,GL_FALSE,&mMVP.m_v[0]);
+	
 
-	TestMesh->Render();
+	PropertyPtr oProp = a_kNode.GetProperty(Property::PROPERTY_TYPE::MESH);
+	bpMesh* opMesh = Utilities::DynamicCast<bpMesh>((oProp.get()));
+	opMesh->Render();
 	glUseProgram(0);
 	
 

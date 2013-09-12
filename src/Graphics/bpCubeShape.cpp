@@ -1,0 +1,29 @@
+//////////////////////////////////////////////////////////////////////////
+//	< Author >	< Anthony Poschen >
+//	< Date >	< 12/9/2013 >
+//  < File >	< bpCubeShape >
+//  < Brief >	< Implements a basic cube that can be rendered >
+//////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////
+//	< Includes >
+#include "bpCubeShape.h"
+
+//////////////////////////////////////////////////////////////////////////
+// < Forward Declares >
+
+bpCubeShape::bpCubeShape(float a_fX, float a_fY, float a_fZ)
+{
+	bpCubeShape(float3(a_fX,a_fY,a_fZ));
+}
+
+bpCubeShape::bpCubeShape(float3 a_vDimentions)
+	:bpMesh()
+{
+	//setup shit
+
+}
+bpCubeShape::~bpCubeShape()
+{
+
+}
