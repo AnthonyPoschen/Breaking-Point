@@ -32,7 +32,6 @@ public:
 	friend class Renderer;
 	ShaderProgram();
 	~ShaderProgram();
-
 	/*! \brief This function loads the shader specified from the shaderfactory.
 	 *  \param a_pcProgramName [in] - The name of the shaderprogram to use. shader program names must be unique.
 	 *  \return bool - determine if the shader could be loaded or not. 
