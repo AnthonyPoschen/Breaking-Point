@@ -26,6 +26,8 @@ class bpMesh : public Property
 public:
 	friend class Renderer;
 	virtual const Rtti& GetType() const { return TYPE; }
+	static const Rtti& Type() { return TYPE;}
+	virtual operator Rtti() { return TYPE;}
 	bpMesh();
 	~bpMesh();
 protected:

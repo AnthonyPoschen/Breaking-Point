@@ -32,7 +32,7 @@ bpMesh::bpMesh()
 	glGenBuffers(1, &m_uiVertexBuffer);
 	glGenBuffers(1,&m_uiVertColorBuffer);
 	glGenBuffers(1,&m_uiIndicieBuffer);
-
+	
 
 
 	vertexdatatest = new float[24];
@@ -127,7 +127,7 @@ bpMesh::bpMesh()
 		//bottom face
 		//0,1 4,5
 		4,5,1,
-		0,1,4,
+		4,1,0,
 
 		//top face
 		//3,2 7,6
@@ -162,6 +162,7 @@ bpMesh::bpMesh()
 
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,m_uiIndicieBuffer);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int)*36,Indicies,GL_STATIC_DRAW);
+	glBindVertexArray(0);
 }
 
 bpMesh::~bpMesh()
@@ -176,10 +177,11 @@ bpMesh::~bpMesh()
 
 void bpMesh::Render()
 {
-
+	glBindVertexArray(m_uiVAOID);
 	// 1rst attribute buffer : vertices
 	glEnableVertexAttribArray(0);
-	
+
+
 	glBindBuffer(GL_ARRAY_BUFFER, m_uiVertexBuffer);
 	glVertexAttribPointer(
 		0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
@@ -205,5 +207,6 @@ void bpMesh::Render()
 	glDrawElements(GL_TRIANGLES,36,GL_UNSIGNED_INT,0); // magic number is number of indicies to draw
 	glDisableVertexAttribArray(1);
 	glDisableVertexAttribArray(0);
+	glBindVertexArray(0);
 	
 }
