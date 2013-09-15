@@ -27,9 +27,9 @@ I:/GitRepos/Breaking-Point/src/Core/AppBase.h:120: Warning: The following parame
 I:/GitRepos/Breaking-Point/src/Core/AppBase.h:52: Warning: argument 'const' of command @param is not found in the argument list of AppBase::OnCreate(const char *a_sCmdLine)=0
 I:/GitRepos/Breaking-Point/src/Core/AppBase.h:52: Warning: The following parameters of AppBase::OnCreate(const char *a_sCmdLine)=0 are not documented:
   parameter 'a_sCmdLine'
-I:/GitRepos/Breaking-Point/src/Core/AVObject.h:83: Warning: argument 'a_kVec' of command @param is not found in the argument list of AVObject::GetTranslate()
-I:/GitRepos/Breaking-Point/src/Core/AVObject.h:91: Warning: argument 'a_kVec' of command @param is not found in the argument list of AVObject::GetWorldTranslate()
-I:/GitRepos/Breaking-Point/src/Graphics/Renderer.h:55: Warning: The following parameters of Renderer::DrawScene(Node &a_kNode, Camera &a_kCamera, ShaderProgram a_kProgram) are not documented:
+I:/GitRepos/Breaking-Point/src/Core/AVObject.h:84: Warning: argument 'a_kVec' of command @param is not found in the argument list of AVObject::GetTranslate()
+I:/GitRepos/Breaking-Point/src/Core/AVObject.h:92: Warning: argument 'a_kVec' of command @param is not found in the argument list of AVObject::GetWorldTranslate()
+I:/GitRepos/Breaking-Point/src/Graphics/Renderer.h:56: Warning: The following parameters of Renderer::DrawScene(Node &a_kNode, Camera &a_kCamera, ShaderProgram a_kProgram) are not documented:
   parameter 'a_kProgram'
 I:/GitRepos/Breaking-Point/src/Core/Rtti.h:25: Warning: The following parameters of Rtti::Rtti(const char *a_cpName, const Rtti *a_pkBaseType=0) are not documented:
   parameter 'a_pkBaseType'
@@ -42,9 +42,9 @@ I:/GitRepos/Breaking-Point/src/Core/AppBase.h:120: Warning: The following parame
 I:/GitRepos/Breaking-Point/src/Core/AppBase.h:52: Warning: argument 'const' of command @param is not found in the argument list of AppBase::OnCreate(const char *a_sCmdLine)=0
 I:/GitRepos/Breaking-Point/src/Core/AppBase.h:52: Warning: The following parameters of AppBase::OnCreate(const char *a_sCmdLine)=0 are not documented:
   parameter 'a_sCmdLine'
-I:/GitRepos/Breaking-Point/src/Core/AVObject.h:83: Warning: argument 'a_kVec' of command @param is not found in the argument list of AVObject::GetTranslate()
-I:/GitRepos/Breaking-Point/src/Core/AVObject.h:91: Warning: argument 'a_kVec' of command @param is not found in the argument list of AVObject::GetWorldTranslate()
-I:/GitRepos/Breaking-Point/src/Graphics/Renderer.h:55: Warning: The following parameters of Renderer::DrawScene(Node &a_kNode, Camera &a_kCamera, ShaderProgram a_kProgram) are not documented:
+I:/GitRepos/Breaking-Point/src/Core/AVObject.h:84: Warning: argument 'a_kVec' of command @param is not found in the argument list of AVObject::GetTranslate()
+I:/GitRepos/Breaking-Point/src/Core/AVObject.h:92: Warning: argument 'a_kVec' of command @param is not found in the argument list of AVObject::GetWorldTranslate()
+I:/GitRepos/Breaking-Point/src/Graphics/Renderer.h:56: Warning: The following parameters of Renderer::DrawScene(Node &a_kNode, Camera &a_kCamera, ShaderProgram a_kProgram) are not documented:
   parameter 'a_kProgram'
 I:/GitRepos/Breaking-Point/src/Core/Rtti.h:25: Warning: The following parameters of Rtti::Rtti(const char *a_cpName, const Rtti *a_pkBaseType=0) are not documented:
   parameter 'a_pkBaseType'

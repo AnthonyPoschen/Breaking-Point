@@ -62,18 +62,51 @@ void Camera::UpdateProjMat()
 {
 	
 	float fRad = toRadians(m_oFrustrum.m_fFieldOfView);
-	float h = cos(0.5f * fRad) / sin(0.5f * fRad);
-	float w = h * (float)Window::Get()->GetHeight() / (float)Window::Get()->GetWidth();
+	float aspect =  (float)Window::Get()->GetWidth() / (float)Window::Get()->GetHeight() ;
+	float h = 1.0f / tan(m_oFrustrum.m_fFieldOfView / 2 * BP_PI / 360);
+	float w = h / aspect;
+
 	float zn = m_oFrustrum.m_fNear;
 	float zf = m_oFrustrum.m_fFar;
+	float Q = zf/ ( zf - zn);
 
 	m_mProj.m_m[0][0] = w;
 	m_mProj.m_m[1][1] = h;
-	m_mProj.m_m[2][2] = (zf + zn) / (zf - zn);
+	m_mProj.m_m[2][2] = Q;
 	m_mProj.m_m[2][3] = 1.0f;
-	m_mProj.m_m[3][2] = -(2.0f * zf * zn) / (zf - zn);
-	m_mProj.m_m[3][3] = 0;
+	m_mProj.m_m[3][2] = -zn*Q;
+	m_mProj.m_m[3][3] = 0.0f;
 	
+	/*
+	float aspectratio =  (float)Window::Get()->GetWidth() / (float)Window::Get()->GetHeight() ;
+	float znear = m_oFrustrum.m_fNear;
+	float zfar = m_oFrustrum.m_fFar;
+	float fov = m_oFrustrum.m_fFieldOfView;
+	float ymax,xmax;
+
+	ymax = (float) (znear * tan(fov * BP_PI / 360));
+	xmax = ymax * aspectratio;
+
+	glFrustrum(m_mProj,-xmax,xmax,-ymax,ymax,znear,zfar);
+	*/
+}
+
+void Camera::glFrustrum(matrix4 &a_mMat, float left, float right, float bottom , float top, float znear , float zfar )
+{
+	float twoZNear, deltaW, deltaH, deltaZ;
+	twoZNear = 2.0f * znear;
+	deltaW = right - left;
+	deltaH = top - bottom;
+	deltaZ = zfar - znear;
+
+	m_mProj.m_f00 = twoZNear / deltaW;
+	m_mProj.m_f11 = twoZNear / deltaH;
+	m_mProj.m_f20 = (right + left) / deltaW;
+	m_mProj.m_f21 = (top + bottom) / deltaZ;
+	m_mProj.m_f22 = (-zfar - znear) / deltaZ;
+	m_mProj.m_f23 = -1.0f;
+	m_mProj.m_f32 = (-twoZNear * zfar) / deltaZ;
+	//m_mProj.Transpose();
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -82,13 +115,15 @@ void Camera::UpdateViewMat()
 	float3 xAxis , yAxis , zAxis , kPosition;
 	kPosition = m_kWorldTransform.m_kTranslate;
 
-	zAxis = kPosition - m_kLookAt;
+	zAxis = m_kLookAt - kPosition;
 	zAxis.Unitise();
 
-	xAxis = m_kUpVec.Cross(zAxis);
+	xAxis = m_kUpVec.Cross(-zAxis);
+	if(xAxis.X == 0.0f && xAxis.Y == 0.0f && xAxis.Z == 0.0f)
+		xAxis.Z = zAxis.Y;
 	xAxis.Unitise();
 
-	yAxis = zAxis.Cross(xAxis);
+	yAxis = zAxis.Cross(-xAxis);
 	yAxis.Unitise();
 	m_mView.m_v[0] = xAxis.X; 
 	m_mView.m_v[1] = yAxis.X;
@@ -105,10 +140,11 @@ void Camera::UpdateViewMat()
 	m_mView.m_v[10]= zAxis.Z;
 	m_mView.m_v[11]= 0;
 
-	m_mView.m_v[12]= (xAxis.Dot(kPosition));
-	m_mView.m_v[13]= (yAxis.Dot(kPosition));
-	m_mView.m_v[14]= (zAxis.Dot(kPosition));
+	m_mView.m_v[12]= -(xAxis.Dot(kPosition));
+	m_mView.m_v[13]= -(yAxis.Dot(kPosition));
+	m_mView.m_v[14]= -(zAxis.Dot(kPosition));
 	m_mView.m_v[15]= 1;
+
 }
 
 //////////////////////////////////////////////////////////////////////////

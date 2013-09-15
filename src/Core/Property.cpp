@@ -11,10 +11,17 @@
 
 //////////////////////////////////////////////////////////////////////////
 // < Forward Declares >
-
+const Rtti Property::TYPE("Property",&Object::TYPE);
 
 //////////////////////////////////////////////////////////////////////////
 Property::Property()
+{
+
+}
+
+//////////////////////////////////////////////////////////////////////////
+Property::Property(PROPERTY_TYPE a_eType)
+	:m_uiPropertyType(a_eType)
 {
 
 }
@@ -23,3 +30,13 @@ Property::~Property()
 {
 
 }
+
+Property::PROPERTY_TYPE Property::GetPropertyType()
+{
+	return (PROPERTY_TYPE)m_uiPropertyType;
+}
+
+//Property::operator PropertyPtr()
+//{
+//
+//}

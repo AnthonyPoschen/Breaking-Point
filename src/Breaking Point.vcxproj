@@ -25,7 +25,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v100</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -101,10 +101,12 @@ doxygen.exe bpdoxyfile</Command>
     <ClCompile Include="Core\Node.cpp" />
     <ClCompile Include="Core\Object.cpp" />
     <ClCompile Include="Core\Property.cpp" />
+    <ClCompile Include="Core\PropertyManager.cpp" />
     <ClCompile Include="Core\Rtti.cpp" />
     <ClCompile Include="Core\Transform.cpp" />
     <ClCompile Include="Core\Utilities.cpp" />
-    <ClCompile Include="Graphics\bzMesh.cpp" />
+    <ClCompile Include="Graphics\bpCubeShape.cpp" />
+    <ClCompile Include="Graphics\bpMesh.cpp" />
     <ClCompile Include="Graphics\Renderer.cpp" />
     <ClCompile Include="Graphics\ShaderFactory.cpp" />
     <ClCompile Include="Graphics\ShaderProgram.cpp" />
@@ -133,10 +135,12 @@ doxygen.exe bpdoxyfile</Command>
     <ClInclude Include="Core\Node.h" />
     <ClInclude Include="Core\Object.h" />
     <ClInclude Include="Core\Property.h" />
+    <ClInclude Include="Core\PropertyManager.h" />
     <ClInclude Include="Core\Rtti.h" />
     <ClInclude Include="Core\Transform.h" />
     <ClInclude Include="Core\Utilities.h" />
-    <ClInclude Include="Graphics\bzMesh.h" />
+    <ClInclude Include="Graphics\bpCubeShape.h" />
+    <ClInclude Include="Graphics\bpMesh.h" />
     <ClInclude Include="Graphics\Renderer.h" />
     <ClInclude Include="Graphics\ShaderFactory.h" />
     <ClInclude Include="Graphics\ShaderProgram.h" />
@@ -158,7 +162,9 @@ doxygen.exe bpdoxyfile</Command>
     <None Include="..\Release\Data\scripts\MyModule.py" />
     <None Include="..\Release\Data\shaders\source\New Text Document.txt" />
     <None Include="..\Release\Data\shaders\source\test.frag" />
-    <None Include="..\Release\Data\shaders\source\test.vert" />
+    <None Include="..\Release\Data\shaders\source\test.vert">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+    </None>
     <None Include="..\Release\Data\shaders\test.nsf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

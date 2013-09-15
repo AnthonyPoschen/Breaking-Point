@@ -71,6 +71,20 @@ float float3::Dot(const float3 &a_kFloat3) const
 }
 
 //////////////////////////////////////////////////////////////////////////
+float3 float3::OffSetFrom(const float3 &a_kPointOfInterest) const
+{
+	float3 kResult;
+	kResult = a_kPointOfInterest - *this;
+	if(a_kPointOfInterest.X > X)
+		kResult.X = -kResult.X;
+	if(a_kPointOfInterest.Y > Y)
+		kResult.Y = -kResult.Y;
+	if(a_kPointOfInterest.Z > Z)
+		kResult.Z = -kResult.Z;
+	return kResult;
+}
+
+//////////////////////////////////////////////////////////////////////////
 float float3::Unitise()
 {
 	float fSum = X + Y + Z;

@@ -295,3 +295,31 @@ float3 matrix4::operator*(const float3& a_kVec)
 
 	return kResult;
 }
+
+void matrix4::Transpose()
+{
+	float ftmp;
+	ftmp = m_f01;
+	m_f01 = m_f10;
+	m_f10 = ftmp;
+
+	ftmp = m_f02;
+	m_f02 = m_f20;
+	m_f20 = ftmp;
+
+	ftmp = m_f03;
+	m_f03 = m_f30;
+	m_f30 = ftmp;
+
+	ftmp = m_f12;
+	m_f12 = m_f21;
+	m_f21 = ftmp;
+
+	ftmp = m_f13;
+	m_f13 = m_f31;
+	m_f31 = ftmp;
+
+	ftmp = m_f23;
+	m_f23 = m_f32;
+	m_f32 = ftmp;
+}

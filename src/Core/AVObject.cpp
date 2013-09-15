@@ -15,7 +15,7 @@ const Rtti AVObject::TYPE("AVObject", &Object::TYPE);
 
 //////////////////////////////////////////////////////////////////////////
 AVObject::AVObject()
-	:m_pkParent(nullptr),m_kName("")
+	:m_pkParent(nullptr),m_kName(""),m_bMarker(false)//this marker is used for searches
 {
 
 }
@@ -34,6 +34,7 @@ void AVObject::Update(float a_fDeltaTime)
 	{
 		AVObject* kObj = m_pkParent;
 		m_kWorldTransform = kObj->m_kWorldTransform * m_kLocalTransform;
+
 	}
 	else
 		m_kWorldTransform = m_kLocalTransform;
@@ -111,4 +112,14 @@ void AVObject::SetScale(float a_fScale)
 {
 	m_kLocalTransform.m_fScale = a_fScale;
 	m_kWorldTransform.m_fScale = a_fScale;
+}
+
+void AVObject::SetTransform(Transform a_kTransform)
+{
+	m_kLocalTransform = a_kTransform;
+}
+
+void AVObject::SetWorldTransform(Transform a_kTransform)
+{
+	m_kWorldTransform = a_kTransform;
 }

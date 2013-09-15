@@ -157,6 +157,16 @@ float2 matrix3::operator * (const float2 &a_kVec) const
 }
 
 //////////////////////////////////////////////////////////////////////////
+float3 matrix3::operator * (const float3 &a_kVec) const
+{
+	float3 kResult;
+	kResult.X = a_kVec.X * m_f00 + a_kVec.Y * m_f10 + a_kVec.Z * m_f20;
+	kResult.Y = a_kVec.X * m_f01 + a_kVec.Y * m_f11 + a_kVec.Z * m_f21;
+	kResult.Z = a_kVec.X * m_f02 + a_kVec.Y * m_f12 + a_kVec.Z * m_f22;
+	return kResult;
+}
+
+//////////////////////////////////////////////////////////////////////////
 void matrix3::Set(float a_f00 , float a_f01 , float a_f02 , float a_f10 , float a_f11 , float a_f12 , float a_f20 , float a_f21 , float a_f22 )
 {
 	m_f00 = a_f00;

@@ -16,6 +16,8 @@
 
 #include "../Core/Camera.h"
 #include "../Graphics/ShaderProgram.h"
+#include "../core/Node.h"
+#include "../Core/Utilities.h"
 
 //////////////////////////////////////////////////////////////////////////
 // < Forward Declares >
@@ -124,16 +126,17 @@ Renderer::Renderer(Window* a_pWindow)
 	glViewport(0,0,Window::Get()->GetWidth(),
 		Window::Get()->GetHeight());
 
-
+	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_LEQUAL);
+	glDepthMask(GL_TRUE);
+	glEnable(GL_CULL_FACE);
 	// temp
-	TestMesh = new bzMesh;
 	m_uiMVPID  = 0; 
 }
 
 //////////////////////////////////////////////////////////////////////////
 Renderer::~Renderer()
 {
-	delete TestMesh;
 	wglDeleteContext(m_hRC);
 }
 
@@ -150,6 +153,8 @@ void Renderer::EndFrame()
 	SwapBuffers(m_hDC);
 }
  
+
+
 //////////////////////////////////////////////////////////////////////////
 void Renderer::DrawScene(Node& a_kNode , Camera& a_kCamera, ShaderProgram a_kProgram)
 {
@@ -159,30 +164,53 @@ void Renderer::DrawScene(Node& a_kNode , Camera& a_kCamera, ShaderProgram a_kPro
 	matrix4 mProj = a_kCamera.GetProjMatrix();
 	matrix4 mModelMat , mTranslate , mRotate , mScale;
 	matrix4 mMVP;
-	
-	//rotate testmesh
-	matrix3 oMat = TestMesh->GetTransform().m_kRotate;
-	
-	// for every object do the below
-	Transform oTransform = TestMesh->GetWorldTransform();
-	matrix4::MakeScaleMatrix(mScale,oTransform.m_fScale);
-	matrix4::MakeRotate(mRotate,oTransform.m_kRotate);
-	matrix4::MakeTranslateMatrix(mTranslate,oTransform.m_kTranslate);
-	
-	// times the matricies together to get the MVP
-	mModelMat = mScale * mRotate * mTranslate  ;
-	mMVP = mModelMat * mView * mProj ;
+
+	boost::container::vector<AVObject*> vMeshNodes;
+	a_kNode.GetChildByProperty(Property::MESH,vMeshNodes);
+
+	auto oItr = vMeshNodes.begin();
+	for(;oItr != vMeshNodes.end(); oItr++)
+	{
+		Node* oNode = Utilities::DynamicCast<Node>((*oItr));
+		if(oNode == nullptr)
+			continue;//skip this
+		if(oNode->GetProperty(Property::SHADER_PROGRAM))
+		{
+			ShaderProgram* oShader = Utilities::DynamicCast<ShaderProgram>(oNode->GetProperty(Property::SHADER_PROGRAM).get());
+			if(oShader != nullptr)
+				glUseProgram(oShader->m_uiProgramID);
+			else
+				glUseProgram(m_kDefaultProgram.m_uiProgramID);
+		}
+		else
+			glUseProgram(m_kDefaultProgram.m_uiProgramID);
+
+		// for every object do the below
+		Transform oTransform = oNode->GetWorldTransform();
+		matrix4::MakeScaleMatrix(mScale,oTransform.m_fScale);
+		matrix4::MakeRotate(mRotate,oTransform.m_kRotate);
+		matrix4::MakeTranslateMatrix(mTranslate,oTransform.m_kTranslate);
+		mTranslate.Transpose();
+		// times the matricies together to get the MVP
+		mModelMat =mScale  * mRotate * mTranslate  ;
+		mMVP =mModelMat  * mView ;
+		mMVP = mMVP * mProj;
+		// get the uniform and put in the model view projection matrix (this needs to be called after use program
+		m_uiMVPID = glGetUniformLocation(a_kProgram.m_uiProgramID,"MVP");
+		glUniformMatrix4fv(m_uiMVPID,1,GL_FALSE,&mMVP.m_v[0]);
+
+		PropertyPtr oProp = oNode->GetProperty(Property::PROPERTY_TYPE::MESH);
+		bpMesh* opMesh = Utilities::DynamicCast<bpMesh>((oProp.get()));
+		opMesh->Render();
+		glUseProgram(0);
+	}
 
 
-	// render object with its shader
-	glUseProgram(a_kProgram.m_uiProgramID);
-	// get the uniform and put in the model view projection matrix (this needs to be called after use program
-	m_uiMVPID = glGetUniformLocation(a_kProgram.m_uiProgramID,"MVP");
-	glUniformMatrix4fv(m_uiMVPID,1,GL_FALSE,&mMVP.m_v[0]);
-
-	TestMesh->Render();
-	glUseProgram(0);
 	
 
 }
  
+void Renderer::SetDefaultShaderprogram(ShaderProgram a_kProgram)
+{
+	m_kDefaultProgram = a_kProgram;
+}

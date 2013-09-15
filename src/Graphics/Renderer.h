@@ -15,7 +15,8 @@
 //////////////////////////////////////////////////////////////////////////
 //	Includes 
 #include <Windows.h>
-#include "bzMesh.h"
+#include "bpMesh.h"
+#include "../Graphics/ShaderProgram.h"
 
 //////////////////////////////////////////////////////////////////////////
 //  Forward Declares 
@@ -23,7 +24,7 @@ class Window;
 class Camera;
 class Node;
 class ShaderProgram;
-class bzMesh;
+class bpMesh;
 
 //////////////////////////////////////////////////////////////////////////
 class Renderer
@@ -60,6 +61,8 @@ public:
 	 */
 	void DrawScene(Node& a_kNode , Camera& a_kCamera, ShaderProgram a_kProgram);
 
+	void SetDefaultShaderprogram(ShaderProgram a_kProgram);
+
 private:
 	Renderer(Window* a_pWindow);
 	~Renderer();
@@ -67,10 +70,11 @@ private:
 	HDC m_hDC;
 	HGLRC m_hRC;
 	// other stuff needed for opengl renderer to function (limited includes in header)
-
 	// temp stuff
-	bzMesh* TestMesh;
-	unsigned int m_uiMVPID;
+	unsigned int m_uiMVPID; 
+
+	ShaderProgram m_kDefaultProgram;
+
 };
 //////////////////////////////////////////////////////////////////////////
 #endif // _RENDERER_H_
