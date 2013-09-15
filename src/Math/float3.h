@@ -47,6 +47,8 @@ public:
 	/* Lerps between two points based on a time (0-1) */
 	static float3 Lerp(const float3 &a_kBegin , const float3 &a_kEnd , const float a_fTime);
 
+	float3 OffSetFrom(const float3 &a_kPointOfInterest) const;
+
 	float3 operator + (const float3 &a_kVec) const;
 	float3 operator - (const float3 &a_kVec) const;
 	float3 operator * (const float3 &a_kVec) const;
