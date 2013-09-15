@@ -60,7 +60,7 @@ public:
 		float m_m[4][4];
 		float m_v[16];
 	};
-
+	void Transpose();
 	static void MakeIdentity(matrix4& a_kMat);
 	void MakeXRotate(float a_fTheta);
 	void MakeYRotate(float a_fTheta);
