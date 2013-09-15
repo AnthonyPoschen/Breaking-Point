@@ -162,7 +162,9 @@ doxygen.exe bpdoxyfile</Command>
     <None Include="..\Release\Data\scripts\MyModule.py" />
     <None Include="..\Release\Data\shaders\source\New Text Document.txt" />
     <None Include="..\Release\Data\shaders\source\test.frag" />
-    <None Include="..\Release\Data\shaders\source\test.vert" />
+    <None Include="..\Release\Data\shaders\source\test.vert">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+    </None>
     <None Include="..\Release\Data\shaders\test.nsf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
