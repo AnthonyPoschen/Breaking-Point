@@ -30,6 +30,7 @@ public:
 	 */
 	virtual const Rtti& GetType() const { return TYPE; }
 
+	virtual operator Rtti() { return TYPE;}
 	/*! \brief Used in other functions to help identify it at runtime. what this class inherits from and if it can be typecast to certain types.
 	 *  \return Rtti - returns the run time identifier for this class type
 	 *	\sa AVObject::GetType()
@@ -116,13 +117,16 @@ public:
 	 */
 	Transform GetWorldTransform();
 
+	void SetTransform(Transform a_kTransform);
+	void SetWorldTransform(Transform a_kTransform);
+
 protected:
 	static const Rtti TYPE;//!<				Class Rtti type is stored in this.
 	Transform m_kWorldTransform;//!<		World Transform of object
 	Transform m_kLocalTransform;//!<		Local Transform of object
 	AVObject* m_pkParent;//!<				Pointer to Parent AVObject
 	boost::container::string m_kName;//!<	Name of Object
-
+	bool m_bMarker;
 private:
 	
 
