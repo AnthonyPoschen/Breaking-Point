@@ -36,6 +36,7 @@ public:
 	Camera*			m_kpCamera;//!<			Main Camera.
 	ShaderProgram	m_kShaderProgram;//!<	Temp var for testing purposes
 	bool m_bfilp;//!<						temp ver used for testing purposes
+	float fDegree;
 protected:
 	virtual bool	OnCreate(const char* a_sCmdLine);
 	virtual bool	OnUpdate();

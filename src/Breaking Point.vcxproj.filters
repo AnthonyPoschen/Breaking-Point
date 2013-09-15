@@ -28,6 +28,9 @@
     <Filter Include="Data\Shaders\Source">
       <UniqueIdentifier>{b2295479-d804-4fac-82e6-b1c7df3ce029}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Graphics\Shapes">
+      <UniqueIdentifier>{160456dc-9b25-442c-a420-b5b39a9d4bb6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -66,9 +69,6 @@
     </ClCompile>
     <ClCompile Include="Core\Utilities.cpp">
       <Filter>Core</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\bzMesh.cpp">
-      <Filter>Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Graphics\Renderer.cpp">
       <Filter>Graphics</Filter>
@@ -118,6 +118,15 @@
     <ClCompile Include="Core\bpPython.cpp">
       <Filter>Core</Filter>
     </ClCompile>
+    <ClCompile Include="Graphics\bpCubeShape.cpp">
+      <Filter>Graphics\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\bpMesh.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\PropertyManager.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\AppBase.h">
@@ -155,9 +164,6 @@
     </ClInclude>
     <ClInclude Include="Core\Utilities.h">
       <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\bzMesh.h">
-      <Filter>Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\Renderer.h">
       <Filter>Graphics</Filter>
@@ -208,6 +214,15 @@
       <Filter>Math</Filter>
     </ClInclude>
     <ClInclude Include="Core\bpPython.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\bpCubeShape.h">
+      <Filter>Graphics\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\bpMesh.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\PropertyManager.h">
       <Filter>Core</Filter>
     </ClInclude>
   </ItemGroup>

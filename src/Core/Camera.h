@@ -38,7 +38,7 @@ public:
 	~Camera();
 	virtual const Rtti& GetType() const { return TYPE; }
 	static const Rtti& Type() { return TYPE;}
-
+	virtual operator Rtti() { return TYPE;}
 
 	Frustrum GetFrustrum();
 	void SetFrustrum(Frustrum &a_oFrustrum);
@@ -65,6 +65,7 @@ protected:
 private:
 	void UpdateProjMat();
 	void UpdateViewMat();
+	void glFrustrum(matrix4 &a_mMat, float left, float right, float bottom , float top, float znear , float zfar );
 };
 //////////////////////////////////////////////////////////////////////////
 #endif // _CAMERA_H_

@@ -1,13 +1,13 @@
 //////////////////////////////////////////////////////////////////////////
 //	< Author >	< Anthony Poschen >
 //	< Date >	< 23/3/2013 >
-//  < File >	< bzMesh >
-//  < Brief >	< bzMesh implementation >
+//  < File >	< bpMesh >
+//  < Brief >	< bpMesh implementation >
 //////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////
 //	< Includes >
-#include "bzMesh.h"
+#include "bpMesh.h"
 
 #define GLEW_STATIC
 
@@ -17,11 +17,11 @@
 
 //////////////////////////////////////////////////////////////////////////
 // < Forward Declares >
-const Rtti bzMesh::TYPE("bzmesh",&AVObject::TYPE);
+const Rtti bpMesh::TYPE("bpMesh",&Property::TYPE);
 
 //////////////////////////////////////////////////////////////////////////
-bzMesh::bzMesh()
-	:AVObject()
+bpMesh::bpMesh()
+	:Property(PROPERTY_TYPE::MESH)
 {
 
 	glGenVertexArrays(1,&m_uiVAOID);
@@ -32,7 +32,7 @@ bzMesh::bzMesh()
 	glGenBuffers(1, &m_uiVertexBuffer);
 	glGenBuffers(1,&m_uiVertColorBuffer);
 	glGenBuffers(1,&m_uiIndicieBuffer);
-
+	
 
 
 	vertexdatatest = new float[24];
@@ -107,7 +107,9 @@ bzMesh::bzMesh()
 	vertcolors[22] = 1.0f;
 	vertcolors[23] = 0.0f;
 
-	unsigned int Indicies[] =
+
+	Indicies = new unsigned int[36];
+	unsigned int uiTmp[36] = 
 	{
 		//top front indicies L-R
 		// 3,2
@@ -125,7 +127,7 @@ bzMesh::bzMesh()
 		//bottom face
 		//0,1 4,5
 		4,5,1,
-		0,1,4,
+		4,1,0,
 
 		//top face
 		//3,2 7,6
@@ -143,7 +145,10 @@ bzMesh::bzMesh()
 		2,1,5,
 		5,6,2
 	};
-	unsigned int uiSize = sizeof(Indicies);
+
+	memcpy(Indicies,&uiTmp,sizeof(unsigned int)*36);
+
+	unsigned int uiSize = sizeof(unsigned int);
 	// information to determine type to use for glbufferdata
 	// http://www.opengl.org/sdk/docs/man/xhtml/glBufferData.xml
 	// Give our vertices to OpenGL.
@@ -156,21 +161,27 @@ bzMesh::bzMesh()
 	glBufferData(GL_ARRAY_BUFFER,sizeof(float)*24,vertcolors,GL_STATIC_DRAW);
 
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,m_uiIndicieBuffer);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indicies),Indicies,GL_STATIC_DRAW);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int)*36,Indicies,GL_STATIC_DRAW);
+	glBindVertexArray(0);
 }
 
-bzMesh::~bzMesh()
+bpMesh::~bpMesh()
 {
 	glDeleteVertexArrays(1,&m_uiVAOID);
+	glDeleteBuffers(1,&m_uiVertexBuffer);
+	glDeleteBuffers(1,&m_uiVertColorBuffer);
 	delete[] vertexdatatest;
+	delete[] vertcolors;
+	delete[] Indicies;
 }
 
-void bzMesh::Render()
+void bpMesh::Render()
 {
-
+	glBindVertexArray(m_uiVAOID);
 	// 1rst attribute buffer : vertices
 	glEnableVertexAttribArray(0);
-	
+
+
 	glBindBuffer(GL_ARRAY_BUFFER, m_uiVertexBuffer);
 	glVertexAttribPointer(
 		0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
@@ -196,5 +207,6 @@ void bzMesh::Render()
 	glDrawElements(GL_TRIANGLES,36,GL_UNSIGNED_INT,0); // magic number is number of indicies to draw
 	glDisableVertexAttribArray(1);
 	glDisableVertexAttribArray(0);
+	glBindVertexArray(0);
 	
 }

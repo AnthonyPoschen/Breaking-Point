@@ -14,6 +14,7 @@
 //////////////////////////////////////////////////////////////////////////
 //	Includes 
 #include "AVObject.h"
+#include "PropertyManager.h"
 #include <boost/container/vector.hpp>
 #include <boost/smart_ptr.hpp>
 
@@ -22,11 +23,11 @@
 typedef boost::shared_ptr<Node> NodePtr;
 
 //////////////////////////////////////////////////////////////////////////
-class Node : public AVObject
+class Node : public AVObject , public PropertyManager
 {
 public:
-
 	virtual const Rtti& GetType() const { return TYPE; }
+	virtual operator Rtti() { return TYPE;}
 	static const Rtti& Type() { return TYPE;}
 	Node();
 	~Node();
@@ -61,13 +62,19 @@ public:
 	 */
 	void Update(float a_fDelta);
 
+	// use this function to mark which nodes u want. return true. at end of search list of all positively marked objects are returned.
+	void NodeDepthFirstSearch( boost::container::vector<AVObject*>&a_vResult,void* a_vpExtraData,bool (*fp_bTestifWanted)(AVObject*,void*));
+	// gives u every object only once to do w/e the hell u want with them. 
+	void NodeDepthFirstSearch(void* a_vpExtraData,void(*fp_vUseUniqueObject)(AVObject*,void*));
+
+	void GetChildByProperty(Property::PROPERTY_TYPE a_ePROPTYPE, boost::container::vector<AVObject*>&a_vResult);
+
 	operator AVObject()  {return (AVObject)*this;}
-	
 protected:
 	static const Rtti TYPE;
 	
 private:
-	
+
 	boost::container::vector<AVObject*> m_vkChildren;
 };
 //////////////////////////////////////////////////////////////////////////

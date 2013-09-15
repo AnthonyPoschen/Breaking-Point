@@ -42,7 +42,7 @@ public:
 	matrix3 operator * ( const matrix3 &a_kMat) const;
 	matrix3 operator * (const float &a_fScale ) const;
 	float2 operator * (const float2 &a_kVec) const;
-
+	float3 operator * (const float3 &a_kVec) const;
 protected:
 	
 
