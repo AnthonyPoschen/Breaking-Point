@@ -26,6 +26,8 @@ class Property : public Object
 {
 public:
 	virtual const Rtti& GetType() const { return TYPE; }
+	static const Rtti& Type() { return TYPE;}
+	virtual operator Rtti() { return TYPE;}
 	enum PROPERTY_TYPE : unsigned int
 	{
 		SHADER_PROGRAM = 0,

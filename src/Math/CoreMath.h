@@ -24,24 +24,24 @@
 //////////////////////////////////////////////////////////////////////////
 //  Forward Declares 
 #ifndef __SPU__
-const Float32 BZ_PI = 3.1415926535897932f;
-const Float32 BZ_HALF_PI = 0.5f * BZ_PI;
-const Float32 BZ_TWO_PI = 2.0f * BZ_PI;
-const Float32 BZ_E = 2.7182818284590452f;
+const Float32 BP_PI = 3.1415926535897932f;
+const Float32 BP_HALF_PI = 0.5f * BP_PI;
+const Float32 BP_TWO_PI = 2.0f * BP_PI;
+const Float32 BP_E = 2.7182818284590452f;
 
 // Conversion macros
-#define toRadians(Degrees) (Degrees * BZ_DEGREES_TO_RADIANS)
-#define toDegrees(Radians) (Radians * BZ_RADIANS_TO_DEGREES)
-const Float32 BZ_DEGREES_TO_RADIANS = BZ_PI / 180.0f;
-const Float32 BZ_RADIANS_TO_DEGREES = 180.0f / BZ_PI;
+#define toRadians(Degrees) (Degrees * BP_DEGREES_TO_RADIANS)
+#define toDegrees(Radians) (Radians * BP_RADIANS_TO_DEGREES)
+const Float32 BP_DEGREES_TO_RADIANS = BP_PI / 180.0f;
+const Float32 BP_RADIANS_TO_DEGREES = 180.0f / BP_PI;
 
 #else
 // SPU compiler does not like global static constant variables
-#define BZ_INFINITY     FLT_MAX
-#define BZ_PI           3.1415926535897932f
-#define BZ_HALF_PI      0.5f * BZ_PI
-#define BZ_TWO_PI       2.0f * BZ_PI
-#define BZ_E            2.7182818284590452f
+#define BP_INFINITY     FLT_MAX
+#define BP_PI           3.1415926535897932f
+#define BP_HALF_PI      0.5f * BP_PI
+#define BP_TWO_PI       2.0f * BP_PI
+#define BP_E            2.7182818284590452f
 #endif
 
 float __fastcall bzSqrt(float a_fValue);

@@ -91,5 +91,6 @@ PropertyPtr PropertyManager::GetProperty(Property::PROPERTY_TYPE a_eType)
 			return ospProp;
 		}
 	}
-	return 0;
+	return nullptr;
 }
+

@@ -24,7 +24,8 @@ class Object
 public:
 	
 	virtual const Rtti& GetType() const;
-	operator Rtti() { return TYPE;}
+	static const Rtti& Type() { return TYPE;}
+	virtual operator Rtti() { return TYPE;}
 	// <Type Comparison functions>
 	//@{
 	/*! \brief Check if the Object passed in is the same type or derived from the same object. from respective name appropriate functions
