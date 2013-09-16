@@ -79,32 +79,32 @@ bpMesh::bpMesh()
 	vertcolors[1] = 0.0f;
 	vertcolors[2] = 0.0f;
 
-	vertcolors[3] = 1.0f;
-	vertcolors[4] = 0.0f;
+	vertcolors[3] = 0.0f;
+	vertcolors[4] = 1.0f;
 	vertcolors[5] = 0.0f;
 
 	vertcolors[6] = 0.0f;
 	vertcolors[7] = 1.0f;
 	vertcolors[8] = 0.0f;
 
-	vertcolors[9] = 0.0f;
-	vertcolors[10] = 1.0f;
+	vertcolors[9] = 1.0f;
+	vertcolors[10] = 0.0f;
 	vertcolors[11] = 0.0f;
 
 	vertcolors[12] = 1.0f;
 	vertcolors[13] = 0.0f;
 	vertcolors[14] = 0.0f;
 
-	vertcolors[15] = 1.0f;
-	vertcolors[16] = 0.0f;
+	vertcolors[15] = 0.0f;
+	vertcolors[16] = 1.0f;
 	vertcolors[17] = 0.0f;
 
 	vertcolors[18] = 0.0f;
 	vertcolors[19] = 1.0f;
 	vertcolors[20] = 0.0f;
 
-	vertcolors[21] = 0.0f;
-	vertcolors[22] = 1.0f;
+	vertcolors[21] = 1.0f;
+	vertcolors[22] = 0.0f;
 	vertcolors[23] = 0.0f;
 
 

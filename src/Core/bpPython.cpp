@@ -63,7 +63,9 @@ bpPython::bpPython()
 	catch (boost::python::error_already_set const&)
 	{
 		std::string perror_str = bpPython::Get()->parse_python_exception();
+#ifdef _DEBUG
 		std::cout << "Error in Python:\nType: " << perror_str << std::endl;
+#endif
 	}
 
 
@@ -93,7 +95,9 @@ void bpPython::exec(boost::python::str a_sCommand, const boost::python::api::obj
 	catch (boost::python::error_already_set const&)
 	{
 		std::string perror_str = bpPython::Get()->parse_python_exception();
+#ifdef _DEBUG
 		std::cout << "Error in Python:\nType: " << perror_str << std::endl;
+#endif
 	}
 
 }

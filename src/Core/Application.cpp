@@ -48,10 +48,10 @@ bool Application::OnCreate(const char* a_sCmdLine)
 	Camera::Frustrum oFrustrum;
 	oFrustrum.m_fNear = 0.001f;
 	oFrustrum.m_fFar = 10000.0f;
-	oFrustrum.m_fFieldOfView = 60.0f;
+	oFrustrum.m_fFieldOfView = 90.0f;
 	oFrustrum.m_fScreenAspectRatio = (float)Window::Get()->GetWidth() / (float)Window::Get()->GetHeight();
 	Camera* oCam = new Camera(oFrustrum);
-	oCam->SetWorldTranslate(float3(70,70,0));
+	oCam->SetWorldTranslate(float3(-10,30,30));
 	oCam->LookAt(float3(0,0,0),float3(0,1,0));
 	oCam->SetName("cam");
 	//m_kRootNode->AttachChild(oCam);

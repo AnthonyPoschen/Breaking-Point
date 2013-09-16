@@ -17,6 +17,7 @@
 #include <gl/GLU.h>
 #include <boost/filesystem.hpp>
 
+
 //////////////////////////////////////////////////////////////////////////
 // < Forward Declares >
 ShaderFactory* ShaderFactory::m_pInst = nullptr;
@@ -166,6 +167,7 @@ void ShaderFactory::ReleaseShaderScan()
 
 		int iPos = kProgramName.find(".",0);
 		kProgramName.erase(iPos,kProgramName.size());
+
 		/// <FIX THIS>
 		boost::algorithm::to_upper(kProgramName);
 
@@ -294,7 +296,7 @@ void ShaderFactory::BuildBNFS()
 		boost::container::map<std::string,std::string> vGSFiles;
 
 		// have some helper varriables setup
-		boost::container::string oProgramName = (*oItr).first;
+		boost::container::string oProgramName = (*oItr).first.c_str();
 		/// <FIX THIS>
 		boost::algorithm::to_lower(oProgramName); // convert the programname to lowercase for file name
 		boost::filesystem::path oFile = (*oItr).second;
@@ -420,7 +422,11 @@ void ShaderFactory::BuildBNFS()
 std::string StringToUpper(std::string a_sConvert)
 {
 	// this causes a stupid std warning C4996: 'std::transform1':...
-	std::transform(a_sConvert.begin(),a_sConvert.end(),a_sConvert.begin(),::toupper);
+	//std::transform(a_sConvert.begin(),a_sConvert.end(),a_sConvert.begin(),::toupper);
+	//boost::to_upper(a_sConvert);
+
+	boost::algorithm::to_upper(a_sConvert);
+
 	return a_sConvert;
 }
 
@@ -445,6 +451,7 @@ bool ShaderFactory::BuildShader(ShaderProgram& a_kProgram)
 			{
 				// shader got loaded now set the passed in program up
 				a_kProgram.m_uiProgramID = m_vProgramIDMap[a_kProgram.m_sProgramName];
+				return true;
 
 			}
 			else // shader failed to load
@@ -511,7 +518,9 @@ bool ShaderFactory::LoadShader(boost::container::string a_sProgramName, boost::f
 			sShaderSource.erase(uiShaderSource);
 
 			// now lets compile a shader and link it to the program
-			OutputDebugString((std::string("\nCompiling Shader ") +  sShaderName).c_str());
+			#ifdef _DEBUG
+				OutputDebugString((std::string("\nCompiling Shader ") +  sShaderName).c_str());
+			#endif
 			GLuint VertexShaderID = glCreateShader(GL_VERTEX_SHADER);
 			const GLchar* glcpSource = (const GLchar*)sShaderSource.c_str();
 			glShaderSource(VertexShaderID,1,&glcpSource,NULL);
@@ -527,13 +536,17 @@ bool ShaderFactory::LoadShader(boost::container::string a_sProgramName, boost::f
 			{
 				char* caLog = new char[InfoLogLength];
 				glGetShaderInfoLog(VertexShaderID,InfoLogLength,NULL,caLog);
+#ifdef _DEBUG
 				OutputDebugString((std::string(" \nCompile Result: FAIL\n") + std::string(caLog) + std::string("\n")).c_str());
+#endif
 				delete[] caLog;
 				return false;
 			}
 			else
 			{
-				OutputDebugString(std::string (" \nCompile Result: PASS\n").c_str());
+				#ifdef _DEBUG
+					OutputDebugString(std::string (" \nCompile Result: PASS\n").c_str());
+				#endif
 				vVertShaders.push_back(VertexShaderID);
 				glAttachShader(ProgramID,VertexShaderID);
 			}
@@ -559,7 +572,9 @@ bool ShaderFactory::LoadShader(boost::container::string a_sProgramName, boost::f
 			sShaderSource.erase(uiShaderSource);
 
 			// compile the Pixel Shader
+#ifdef _DEBUG
 			OutputDebugString((std::string("\nCompiling Shader ") +  sShaderName).c_str());
+#endif
 			GLuint PixelShaderID = glCreateShader(GL_FRAGMENT_SHADER);
 			const GLchar* glcpSource = (const GLchar*)sShaderSource.c_str();
 			glShaderSource(PixelShaderID,1,&glcpSource,NULL);
@@ -575,13 +590,17 @@ bool ShaderFactory::LoadShader(boost::container::string a_sProgramName, boost::f
 			{
 				char* caLog = new char[InfoLogLength];
 				glGetShaderInfoLog(PixelShaderID,InfoLogLength,NULL,caLog);
+#ifdef _DEBUG
 				OutputDebugString((std::string(" \nCompile Result: FAIL\n") + std::string(caLog) + std::string("\n")).c_str());
+#endif
 				delete[] caLog;
 				return false;
 			}
 			else
 			{
+#ifdef _DEBUG
 				OutputDebugString(std::string (" \nCompile Result: PASS\n").c_str());
+#endif
 				vPixelShaders.push_back(PixelShaderID);
 				glAttachShader(ProgramID,PixelShaderID);
 			}
@@ -608,7 +627,9 @@ bool ShaderFactory::LoadShader(boost::container::string a_sProgramName, boost::f
 			sShaderSource.erase(uiShaderSource);
 
 			// compile the Pixel Shader
+#ifdef _DEBUG
 			OutputDebugString((std::string("\nCompiling Shader ") +  sShaderName).c_str());
+#endif
 			GLuint GeoShaderID = glCreateShader(GL_GEOMETRY_SHADER);
 			const GLchar* glcpSource = (const GLchar*)sShaderSource.c_str();
 			glShaderSource(GeoShaderID,1,&glcpSource,NULL);
@@ -624,13 +645,17 @@ bool ShaderFactory::LoadShader(boost::container::string a_sProgramName, boost::f
 			{
 				char* caLog = new char[InfoLogLength];
 				glGetShaderInfoLog(GeoShaderID,InfoLogLength,NULL,caLog);
+#ifdef _DEBUG
 				OutputDebugString((std::string(" \nCompile Result: FAIL\n") + std::string(caLog) + std::string("\n")).c_str());
+#endif
 				delete[] caLog;
 				return false;
 			}
 			else
 			{
+#ifdef _DEBUG
 				OutputDebugString(std::string (" \nCompile Result: PASS\n").c_str());
+#endif
 				vgeoShaders.push_back(GeoShaderID);
 				glAttachShader(ProgramID,GeoShaderID);
 			}
@@ -647,7 +672,9 @@ bool ShaderFactory::LoadShader(boost::container::string a_sProgramName, boost::f
 			glGetProgramiv(ProgramID,GL_INFO_LOG_LENGTH,&InfoLogLength);
 			char* caLog = new char[InfoLogLength];
 			glGetProgramInfoLog(ProgramID,InfoLogLength,NULL,caLog);
+#ifdef _DEBUG
 			OutputDebugString((std::string(" \nCompile Shader Program Result: FAIL\n") + std::string(caLog) + std::string("\n")).c_str());
+#endif
 			return false;
 		}
 		m_vProgramIDMap[a_sProgramName] = ProgramID;
