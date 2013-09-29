@@ -41,13 +41,13 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <LibraryPath>.\3rd Party Content\lib;$(LibraryPath)</LibraryPath>
-    <IncludePath>.\3rd Party Content\include;.\3rd Party Content\Python32\include;.\3rd Party Content\Python32\include\Stackless;$(IncludePath)</IncludePath>
+    <LibraryPath>.\3rd Party Content\lib;.\3rd Party Content\lib\havok;$(LibraryPath)</LibraryPath>
+    <IncludePath>.\3rd Party Content\include;.\3rd Party Content\Python32\include;.\3rd Party Content\Python32\include\Stackless;.\3rd Party Content\include\havok;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>.\3rd Party Content\include;.\3rd Party Content\Python32\include;.\3rd Party Content\Python32\include\Stackless;$(IncludePath)</IncludePath>
-    <LibraryPath>.\3rd Party Content\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>.\3rd Party Content\include;.\3rd Party Content\Python32\include;.\3rd Party Content\Python32\include\Stackless;.\3rd Party Content\include\havok;$(IncludePath)</IncludePath>
+    <LibraryPath>.\3rd Party Content\lib;.\3rd Party Content\lib\havok;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -115,6 +115,7 @@ doxygen.exe bpdoxyfile</Command>
     <ClCompile Include="Graphics\ShaderFactory.cpp" />
     <ClCompile Include="Graphics\ShaderProgram.cpp" />
     <ClCompile Include="Graphics\Window.cpp" />
+    <ClCompile Include="Havok\Physics.cpp" />
     <ClCompile Include="Input\Keyboard.cpp" />
     <ClCompile Include="Input\Mouse.cpp" />
     <ClCompile Include="Input\ResourceManager.cpp" />
@@ -149,6 +150,7 @@ doxygen.exe bpdoxyfile</Command>
     <ClInclude Include="Graphics\ShaderFactory.h" />
     <ClInclude Include="Graphics\ShaderProgram.h" />
     <ClInclude Include="Graphics\Window.h" />
+    <ClInclude Include="Havok\Physics.h" />
     <ClInclude Include="Input\Keyboard.h" />
     <ClInclude Include="Input\Mouse.h" />
     <ClInclude Include="Input\ResourceManager.h" />
