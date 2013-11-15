@@ -24,6 +24,12 @@ PYTHON_MODULE(bpUtil)
 	def("ConsoleClear",&Utilities::ConsoleClear);
 }
 
+#ifdef _UNICODE
+	typedef wchar_t TCHAR;
+#else
+	typedef char TCHAR;
+#endif
+
 //////////////////////////////////////////////////////////////////////////
 void Utilities::ConsoleShow(bool a_bShow /* = true */)
 {
@@ -45,7 +51,8 @@ void Utilities::ConsoleShow(bool a_bShow /* = true */)
 		setvbuf(hf_in, NULL, _IONBF, 128);
 		*stdin = *hf_in;
 
-		SetConsoleTitle("Debug Console");
+		
+		SetConsoleTitle(Utilities::StdStringToLPCWSTR("Debug Console"));
 
 		//move the window to the upper left corner
 		HWND hwnd = GetConsoleWindow();
@@ -107,6 +114,12 @@ void Utilities::Debug_OutputWrite(const char* pFormat, ...)
 	vsprintf_s(caString,pFormat,arglist);
 	va_end(arglist);
 
-	OutputDebugString(caString);
+	OutputDebugString((LPCWSTR)caString);
 #endif
+}
+
+LPCWSTR Utilities::StdStringToLPCWSTR(std::string a_kString)
+{
+
+	return (std::wstring(a_kString.begin(),a_kString.end()).c_str());
 }

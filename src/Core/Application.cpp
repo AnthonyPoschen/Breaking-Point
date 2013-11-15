@@ -22,7 +22,7 @@
 #include <iostream>
 #include <string>
 #include "Utilities.h"
-
+#include "../Physics/HavokPhysicsWorld.h"
 
 //////////////////////////////////////////////////////////////////////////
 // < Forward Declares >
@@ -79,6 +79,10 @@ bool Application::OnCreate(const char* a_sCmdLine)
 	oNode1->AttachChild(oNode2);
 
 	m_kRootNode->Update(0);
+
+
+	//m_kpPhysicsWorld = new HavokPhysicsWorld();
+
 	return true;
 }
 
@@ -163,6 +167,7 @@ void Application::OnRender()
 //////////////////////////////////////////////////////////////////////////
 void Application::OnDestroy()
 {
+	delete m_kpPhysicsWorld;
 	bpPython::Get()->Release();
 	Renderer::Get()->Release();
 	Mouse::Get()->Release();

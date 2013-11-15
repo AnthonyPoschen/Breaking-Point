@@ -24,7 +24,7 @@
 class Node;
 class Camera;
 class ShaderProgram;
-
+class PhysicsWorld;
 
 //////////////////////////////////////////////////////////////////////////
 class Application : public AppBase
@@ -35,6 +35,7 @@ public:
 	NodePtr			m_kRootNode;//!<		Root Scene Node (used for rendering and managing a scene graph)
 	Camera*			m_kpCamera;//!<			Main Camera.
 	ShaderProgram	m_kShaderProgram;//!<	Temp var for testing purposes
+	PhysicsWorld*	m_kpPhysicsWorld;//!<	Physics world simulation object
 	bool m_bfilp;//!<						temp ver used for testing purposes
 	float fDegree;
 protected:

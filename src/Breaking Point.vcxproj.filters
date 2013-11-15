@@ -127,6 +127,8 @@
     <ClCompile Include="Core\PropertyManager.cpp">
       <Filter>Core</Filter>
     </ClCompile>
+    <ClCompile Include="Physics\PhysicsWorld.cpp" />
+    <ClCompile Include="Physics\HavokPhysicsWorld.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\AppBase.h">
@@ -225,6 +227,8 @@
     <ClInclude Include="Core\PropertyManager.h">
       <Filter>Core</Filter>
     </ClInclude>
+    <ClInclude Include="Physics\PhysicsWorld.h" />
+    <ClInclude Include="Physics\HavokPhysicsWorld.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Release\Data\scripts\MyModule.py">

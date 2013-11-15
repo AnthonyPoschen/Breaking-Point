@@ -20,7 +20,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v110</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -41,29 +41,49 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <LibraryPath>.\3rd Party Content\lib;.\3rd Party Content\lib\havok;$(LibraryPath)</LibraryPath>
+    <LibraryPath>.\3rd Party Content\lib;.\3rd Party Content\lib\havok\debug;$(LibraryPath)</LibraryPath>
     <IncludePath>.\3rd Party Content\include;.\3rd Party Content\Python32\include;.\3rd Party Content\Python32\include\Stackless;.\3rd Party Content\include\havok;$(IncludePath)</IncludePath>
+    <CustomBuildAfterTargets>BscMake</CustomBuildAfterTargets>
+    <CustomBuildBeforeTargets>PostBuildEvent</CustomBuildBeforeTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>.\3rd Party Content\include;.\3rd Party Content\Python32\include;.\3rd Party Content\Python32\include\Stackless;.\3rd Party Content\include\havok;$(IncludePath)</IncludePath>
-    <LibraryPath>.\3rd Party Content\lib;.\3rd Party Content\lib\havok;$(LibraryPath)</LibraryPath>
+    <LibraryPath>.\3rd Party Content\lib;.\3rd Party Content\lib\havok\release;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PrecompiledHeader>
       </PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;BOOST_LIB_DIAGNOSTIC;BOOST_PYTHON_NO_LIB;BOOST_PYTHON_STATIC_LIB;BOOST_PYTHON_STATIC_MODULE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;BOOST_LIB_DIAGNOSTIC;BOOST_PYTHON_NO_LIB;BOOST_PYTHON_STATIC_LIB;BOOST_PYTHON_STATIC_MODULE;HK_DEBUG;HK_DEBUG_SLOW;_XT_STATICLINK;_CONSOLE;_ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH;HK_CONFIG_SIMD=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>.\3rd Party Content\include;.\3rd Party Content\Python32\include;.\3rd Party Content\Python32\include\stackless;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <DisableSpecificWarnings>4996;</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4996;4099;</DisableSpecificWarnings>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAsManaged>false</CompileAsManaged>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <OmitFramePointers />
+      <StringPooling>true</StringPooling>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>BoostPython_d_vs2012.lib;glew32sd.lib;opengl32.lib;glu32.lib;Python32_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>BoostPython_d_vs2012.lib;glew32sd.lib;opengl32.lib;glu32.lib;Python32_d.lib;%(AdditionalDependencies);hkbase.lib;hkCompat.lib;hkSceneData.lib;hkSerialize.lib;hkInternal.lib;hkGeometryUtilities.lib;hkVisualize.lib;hkcdInternal.lib;hkcdCollide.lib;hkpCollide.lib;hkpConstraint.lib;hkpConstraintSolver.lib;hkpDynamics.lib;hkpInternal.lib;hkpUtilities.lib;hkpVehicle.lib</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>true</ImageHasSafeExceptionHandlers>
     </Link>
     <PostBuildEvent>
       <Command>cd $(SolutionDir)
@@ -88,7 +108,7 @@ doxygen.exe bpdoxyfile</Command>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>BoostPython_vs2012.lib;glew32sd.lib;opengl32.lib;glu32.lib;Python32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>BoostPython_vs2012.lib;glew32sd.lib;opengl32.lib;glu32.lib;Python32.lib;%(AdditionalDependencies);hkgCommon.lib</AdditionalDependencies>
     </Link>
     <Bscmake>
       <PreserveSbr>true</PreserveSbr>
@@ -115,7 +135,6 @@ doxygen.exe bpdoxyfile</Command>
     <ClCompile Include="Graphics\ShaderFactory.cpp" />
     <ClCompile Include="Graphics\ShaderProgram.cpp" />
     <ClCompile Include="Graphics\Window.cpp" />
-    <ClCompile Include="Havok\Physics.cpp" />
     <ClCompile Include="Input\Keyboard.cpp" />
     <ClCompile Include="Input\Mouse.cpp" />
     <ClCompile Include="Input\ResourceManager.cpp" />
@@ -128,6 +147,8 @@ doxygen.exe bpdoxyfile</Command>
     <ClCompile Include="Math\matrix3.cpp" />
     <ClCompile Include="Math\matrix4.cpp" />
     <ClCompile Include="Math\Quaternion.cpp" />
+    <ClCompile Include="Physics\HavokPhysicsWorld.cpp" />
+    <ClCompile Include="Physics\PhysicsWorld.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\AppBase.h" />
@@ -150,7 +171,6 @@ doxygen.exe bpdoxyfile</Command>
     <ClInclude Include="Graphics\ShaderFactory.h" />
     <ClInclude Include="Graphics\ShaderProgram.h" />
     <ClInclude Include="Graphics\Window.h" />
-    <ClInclude Include="Havok\Physics.h" />
     <ClInclude Include="Input\Keyboard.h" />
     <ClInclude Include="Input\Mouse.h" />
     <ClInclude Include="Input\ResourceManager.h" />
@@ -163,6 +183,8 @@ doxygen.exe bpdoxyfile</Command>
     <ClInclude Include="Math\matrix4.h" />
     <ClInclude Include="Math\Quaternion.h" />
     <ClInclude Include="Math\UniversalTypes.h" />
+    <ClInclude Include="Physics\HavokPhysicsWorld.h" />
+    <ClInclude Include="Physics\PhysicsWorld.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Release\Data\scripts\MyModule.py" />

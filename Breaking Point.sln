@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Breaking Point", "src\Breaking Point.vcxproj", "{070C789C-94F1-4150-A85C-27CF4EEDC0A2}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Unit Tests", "Unit Tests\Unit Tests.vcxproj", "{F1CF91BE-A1AC-4632-B27D-1EE38B9491D5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -13,6 +15,10 @@ Global
 		{070C789C-94F1-4150-A85C-27CF4EEDC0A2}.Debug|Win32.Build.0 = Debug|Win32
 		{070C789C-94F1-4150-A85C-27CF4EEDC0A2}.Release|Win32.ActiveCfg = Release|Win32
 		{070C789C-94F1-4150-A85C-27CF4EEDC0A2}.Release|Win32.Build.0 = Release|Win32
+		{F1CF91BE-A1AC-4632-B27D-1EE38B9491D5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F1CF91BE-A1AC-4632-B27D-1EE38B9491D5}.Debug|Win32.Build.0 = Debug|Win32
+		{F1CF91BE-A1AC-4632-B27D-1EE38B9491D5}.Release|Win32.ActiveCfg = Release|Win32
+		{F1CF91BE-A1AC-4632-B27D-1EE38B9491D5}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

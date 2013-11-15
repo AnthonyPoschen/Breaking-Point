@@ -16,7 +16,7 @@
 #include "../include/wglew.h"
 #include <gl/GLU.h>
 #include <boost/filesystem.hpp>
-
+#include "../Core/Utilities.h"
 
 //////////////////////////////////////////////////////////////////////////
 // < Forward Declares >
@@ -519,7 +519,7 @@ bool ShaderFactory::LoadShader(boost::container::string a_sProgramName, boost::f
 
 			// now lets compile a shader and link it to the program
 			#ifdef _DEBUG
-				OutputDebugString((std::string("\nCompiling Shader ") +  sShaderName).c_str());
+				OutputDebugString((LPCWSTR)(std::string("\nCompiling Shader ") +  sShaderName).c_str());
 			#endif
 			GLuint VertexShaderID = glCreateShader(GL_VERTEX_SHADER);
 			const GLchar* glcpSource = (const GLchar*)sShaderSource.c_str();
@@ -536,16 +536,17 @@ bool ShaderFactory::LoadShader(boost::container::string a_sProgramName, boost::f
 			{
 				char* caLog = new char[InfoLogLength];
 				glGetShaderInfoLog(VertexShaderID,InfoLogLength,NULL,caLog);
-#ifdef _DEBUG
-				OutputDebugString((std::string(" \nCompile Result: FAIL\n") + std::string(caLog) + std::string("\n")).c_str());
-#endif
+			#ifdef _DEBUG
+				
+				OutputDebugString(Utilities::StdStringToLPCWSTR(std::string(" \nCompile Result: FAIL\n") + std::string(caLog) + std::string("\n")));
+			#endif
 				delete[] caLog;
 				return false;
 			}
 			else
 			{
 				#ifdef _DEBUG
-					OutputDebugString(std::string (" \nCompile Result: PASS\n").c_str());
+					OutputDebugString(Utilities::StdStringToLPCWSTR(std::string (" \nCompile Result: PASS\n")));
 				#endif
 				vVertShaders.push_back(VertexShaderID);
 				glAttachShader(ProgramID,VertexShaderID);
@@ -573,7 +574,7 @@ bool ShaderFactory::LoadShader(boost::container::string a_sProgramName, boost::f
 
 			// compile the Pixel Shader
 #ifdef _DEBUG
-			OutputDebugString((std::string("\nCompiling Shader ") +  sShaderName).c_str());
+			OutputDebugString(Utilities::StdStringToLPCWSTR(std::string("\nCompiling Shader ") +  sShaderName));
 #endif
 			GLuint PixelShaderID = glCreateShader(GL_FRAGMENT_SHADER);
 			const GLchar* glcpSource = (const GLchar*)sShaderSource.c_str();
@@ -591,7 +592,7 @@ bool ShaderFactory::LoadShader(boost::container::string a_sProgramName, boost::f
 				char* caLog = new char[InfoLogLength];
 				glGetShaderInfoLog(PixelShaderID,InfoLogLength,NULL,caLog);
 #ifdef _DEBUG
-				OutputDebugString((std::string(" \nCompile Result: FAIL\n") + std::string(caLog) + std::string("\n")).c_str());
+				OutputDebugString(Utilities::StdStringToLPCWSTR(std::string(" \nCompile Result: FAIL\n") + std::string(caLog) + std::string("\n")));
 #endif
 				delete[] caLog;
 				return false;
@@ -599,7 +600,7 @@ bool ShaderFactory::LoadShader(boost::container::string a_sProgramName, boost::f
 			else
 			{
 #ifdef _DEBUG
-				OutputDebugString(std::string (" \nCompile Result: PASS\n").c_str());
+				OutputDebugString(Utilities::StdStringToLPCWSTR(std::string (" \nCompile Result: PASS\n")));
 #endif
 				vPixelShaders.push_back(PixelShaderID);
 				glAttachShader(ProgramID,PixelShaderID);
@@ -628,7 +629,7 @@ bool ShaderFactory::LoadShader(boost::container::string a_sProgramName, boost::f
 
 			// compile the Pixel Shader
 #ifdef _DEBUG
-			OutputDebugString((std::string("\nCompiling Shader ") +  sShaderName).c_str());
+			OutputDebugString(Utilities::StdStringToLPCWSTR(std::string("\nCompiling Shader ") +  sShaderName));
 #endif
 			GLuint GeoShaderID = glCreateShader(GL_GEOMETRY_SHADER);
 			const GLchar* glcpSource = (const GLchar*)sShaderSource.c_str();
@@ -646,7 +647,7 @@ bool ShaderFactory::LoadShader(boost::container::string a_sProgramName, boost::f
 				char* caLog = new char[InfoLogLength];
 				glGetShaderInfoLog(GeoShaderID,InfoLogLength,NULL,caLog);
 #ifdef _DEBUG
-				OutputDebugString((std::string(" \nCompile Result: FAIL\n") + std::string(caLog) + std::string("\n")).c_str());
+				OutputDebugString(Utilities::StdStringToLPCWSTR(std::string(" \nCompile Result: FAIL\n") + std::string(caLog) + std::string("\n")));
 #endif
 				delete[] caLog;
 				return false;
@@ -654,7 +655,7 @@ bool ShaderFactory::LoadShader(boost::container::string a_sProgramName, boost::f
 			else
 			{
 #ifdef _DEBUG
-				OutputDebugString(std::string (" \nCompile Result: PASS\n").c_str());
+				OutputDebugString(Utilities::StdStringToLPCWSTR(std::string (" \nCompile Result: PASS\n")));
 #endif
 				vgeoShaders.push_back(GeoShaderID);
 				glAttachShader(ProgramID,GeoShaderID);
@@ -673,7 +674,7 @@ bool ShaderFactory::LoadShader(boost::container::string a_sProgramName, boost::f
 			char* caLog = new char[InfoLogLength];
 			glGetProgramInfoLog(ProgramID,InfoLogLength,NULL,caLog);
 #ifdef _DEBUG
-			OutputDebugString((std::string(" \nCompile Shader Program Result: FAIL\n") + std::string(caLog) + std::string("\n")).c_str());
+			OutputDebugString(Utilities::StdStringToLPCWSTR(std::string(" \nCompile Shader Program Result: FAIL\n") + std::string(caLog) + std::string("\n")));
 #endif
 			return false;
 		}

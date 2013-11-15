@@ -9,20 +9,12 @@
  *  \copyright N/A
  */
 //////////////////////////////////////////////////////////////////////////
-#ifndef _PhysicsWorld_H_
-# define _PhysicsWorld_H_
+#ifndef _PHYSICSWORLD_H_
+# define _PHYSICSWORLD_H_
 //////////////////////////////////////////////////////////////////////////
 //	Includes 
 #include "../core/Object.h"
 /*
-#include <Common/Base/hkBase.h>
-#include <Common/Base/System/hkBaseSystem.h>
-#include <Common/Base/Memory/Allocator/Malloc/hkMallocAllocator.h>
-#include <Common/Base/Memory/Allocator/LargeBlock/hkLargeBlockAllocator.h>
-#include <Common/Base/Memory/System/FreeList/hkFreeListMemorySystem.h>
-#include <Common/Base/Fwd/hkcstdio.h>
-// Platform specific initialization
-#include <Common/Base/System/Init/PlatformInit.cxx>
 
 */
 //////////////////////////////////////////////////////////////////////////
@@ -46,5 +38,5 @@ private:
 };
 
 //////////////////////////////////////////////////////////////////////////
-#endif // _PhysicsWorld_H_
+#endif // _PHYSICSWORLD_H_
 //////////////////////////////////////////////////////////////////////////

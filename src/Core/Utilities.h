@@ -16,6 +16,9 @@
 #include <stdio.h>
 #include <assert.h>
 #include "Object.h"
+#include <boost/algorithm/string.hpp>
+#include <stdio.h>
+#include <windows.h>
 //////////////////////////////////////////////////////////////////////////
 //  Forward Declares 
 namespace Utilities
@@ -25,6 +28,8 @@ namespace Utilities
 
 	void Debug_ConsoleWrite(const char* pFormat, ...);
 	void Debug_OutputWrite(const char* pFormat, ...);
+
+	LPCWSTR StdStringToLPCWSTR(std::string a_kString);
 
 	
 	/*! \brief cast the passed in object to the template type. without checking if it can happen safely.

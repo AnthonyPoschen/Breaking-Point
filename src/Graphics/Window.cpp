@@ -10,6 +10,7 @@
 #include "Window.h"
 #include "../Input/Mouse.h"
 #include <stdlib.h>
+#include "../Core/Utilities.h"
 //////////////////////////////////////////////////////////////////////////
 // < Forward Declares >
 Window* Window::m_pSingleton = nullptr;
@@ -51,7 +52,7 @@ Window::Window(const char* a_pcName , int a_iWidth , int a_iHeight , bool a_bWin
 	sm_oWindowClass.hCursor = LoadCursor(NULL, IDC_ARROW);
 	sm_oWindowClass.hbrBackground = (HBRUSH)GetStockObject(LTGRAY_BRUSH);
 	sm_oWindowClass.lpszMenuName = NULL;
-	sm_oWindowClass.lpszClassName = a_pcName;
+	sm_oWindowClass.lpszClassName = Utilities::StdStringToLPCWSTR(a_pcName);
 	sm_oWindowClass.cbSize = sizeof(WNDCLASSEX);
 
 
@@ -98,7 +99,7 @@ Window::Window(const char* a_pcName , int a_iWidth , int a_iHeight , bool a_bWin
 	}
 
 
-	m_oHwnd = CreateWindowEx(WS_EX_APPWINDOW, a_pcName, a_pcName, 
+	m_oHwnd = CreateWindowEx(WS_EX_APPWINDOW, Utilities::StdStringToLPCWSTR(a_pcName), Utilities::StdStringToLPCWSTR(a_pcName), 
 		a_bBordered ? WS_OVERLAPPED | WS_CAPTION | WS_THICKFRAME | WS_SYSMENU : WS_POPUP,
 		iPosX, iPosY, iWndWidth , iWndHeight , NULL, NULL, m_hInstance, NULL);
 
@@ -197,7 +198,7 @@ LRESULT CALLBACK Window::WindowProc(HWND Handle, unsigned int msg, WPARAM wParam
 			for(int i = 0;i < iFileCount;++i)
 			{
 				char a_szFileDir[256];
-				DragQueryFile(hDrop,i,a_szFileDir,MAX_PATH);
+				DragQueryFile(hDrop,i,(LPWSTR)a_szFileDir,MAX_PATH);
 				//m_pSingleton->OnDropFile(a_szFileDir);
 			}
 			DragFinish(hDrop);

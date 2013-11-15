@@ -1,25 +1,30 @@
 I:/GitRepos/Breaking-Point/src/Core/bpPython.h:47: Warning: missing title after \defgroup PyModules
 I:/GitRepos/Breaking-Point/src/Core/bzTime.cpp:15: Warning: missing title after \defgroup bpTime
 I:/GitRepos/Breaking-Point/src/Core/Input.cpp:16: Warning: missing title after \defgroup bpInput
-I:/GitRepos/Breaking-Point/src/Core/Utilities.cpp:28: Warning: no matching file member found for 
+I:/GitRepos/Breaking-Point/src/Core/Utilities.cpp:34: Warning: no matching file member found for 
 void Utilities::ConsoleShow(bool a_bShow)
 Possible candidates:
- 'void ConsoleShow(bool a_bShow=true)' at line 23 of fileI:/GitRepos/Breaking-Point/src/Core/Utilities.h
+ 'void ConsoleShow(bool a_bShow=true)' at line 26 of fileI:/GitRepos/Breaking-Point/src/Core/Utilities.h
 
-I:/GitRepos/Breaking-Point/src/Core/Utilities.cpp:66: Warning: no matching file member found for 
+I:/GitRepos/Breaking-Point/src/Core/Utilities.cpp:73: Warning: no matching file member found for 
 void Utilities::ConsoleClear()
 Possible candidates:
- 'void ConsoleClear()' at line 24 of fileI:/GitRepos/Breaking-Point/src/Core/Utilities.h
+ 'void ConsoleClear()' at line 27 of fileI:/GitRepos/Breaking-Point/src/Core/Utilities.h
 
-I:/GitRepos/Breaking-Point/src/Core/Utilities.cpp:87: Warning: no matching file member found for 
+I:/GitRepos/Breaking-Point/src/Core/Utilities.cpp:94: Warning: no matching file member found for 
 void Utilities::Debug_ConsoleWrite(const char *pFormat,...)
 Possible candidates:
- 'void Debug_ConsoleWrite(const char *pFormat,...)' at line 26 of fileI:/GitRepos/Breaking-Point/src/Core/Utilities.h
+ 'void Debug_ConsoleWrite(const char *pFormat,...)' at line 29 of fileI:/GitRepos/Breaking-Point/src/Core/Utilities.h
 
-I:/GitRepos/Breaking-Point/src/Core/Utilities.cpp:101: Warning: no matching file member found for 
+I:/GitRepos/Breaking-Point/src/Core/Utilities.cpp:108: Warning: no matching file member found for 
 void Utilities::Debug_OutputWrite(const char *pFormat,...)
 Possible candidates:
- 'void Debug_OutputWrite(const char *pFormat,...)' at line 27 of fileI:/GitRepos/Breaking-Point/src/Core/Utilities.h
+ 'void Debug_OutputWrite(const char *pFormat,...)' at line 30 of fileI:/GitRepos/Breaking-Point/src/Core/Utilities.h
+
+I:/GitRepos/Breaking-Point/src/Core/Utilities.cpp:121: Warning: no matching file member found for 
+LPCWSTR Utilities::StdStringToLPCWSTR(std::string a_kString)
+Possible candidates:
+ 'LPCWSTR StdStringToLPCWSTR(std::string a_kString)' at line 32 of fileI:/GitRepos/Breaking-Point/src/Core/Utilities.h
 
 I:/GitRepos/Breaking-Point/src/Core/AppBase.h:120: Warning: argument 'const' of command @param is not found in the argument list of AppBase::DisplayErrorMessageBox(const char *a_sMessage)
 I:/GitRepos/Breaking-Point/src/Core/AppBase.h:120: Warning: The following parameters of AppBase::DisplayErrorMessageBox(const char *a_sMessage) are not documented:

@@ -16,3 +16,12 @@
 const Rtti PhysicsWorld::TYPE("PhysicsWorld",&Object::TYPE);
 //////////////////////////////////////////////////////////////////////////
 
+PhysicsWorld::PhysicsWorld()
+{
+
+}
+
+PhysicsWorld::~PhysicsWorld()
+{
+
+}
